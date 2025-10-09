@@ -3,6 +3,8 @@ import DevicePage from "../pages/DevicePage/DevicePage"
 import LoginPage from "../pages/LoginPage/LoginPage"
 import GroupPage from "../pages/GroupPage/GroupPage"
 import ConfigPage from "../pages/ConfigPage/ConfigPage"
+import SignupPage from "../pages/SignupPage/SignupPage"
+import ForgetPage from "../pages/ForgetPage/ForgetPage"
 
 interface RouteType {
     path: string,
@@ -13,8 +15,8 @@ interface RouteType {
 const routes : RouteType[] = [
     {
         path:  "/",
-        element: <DevicePage/>,
-        showHeader: true,
+        element: <LoginPage/>,
+        showHeader: false,
     },
     {
         path: "/device_page",
@@ -25,6 +27,16 @@ const routes : RouteType[] = [
     {
         path: "/login_page",
         element: <LoginPage/>,
+        showHeader: false,
+    },
+    {
+        path: "/signup_page",
+        element: <SignupPage/>,
+        showHeader: false,
+    },
+    {
+        path: "/forget_page",
+        element: <ForgetPage/>,
         showHeader: false,
     },
     {

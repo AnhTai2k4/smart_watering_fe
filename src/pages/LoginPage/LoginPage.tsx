@@ -1,29 +1,60 @@
-import "./LoginPage.css"
+import "./LoginPage.css";
+import { UserContext } from "../../contexts/UserContext";
+import { useContext } from "react";
+// import { login } from "../../services/UserService";
+import { useNavigate } from "react-router-dom";
 const LoginPage = () => {
+  const {userName, setUserName, password, setPassword} = useContext(UserContext);
+  const navigate = useNavigate();
+  const handleSubmit = () => {
+    // const res = login(userName as string, password as string);
+    navigate("/device_page");
+    
+    console.log("Username:", userName);
+    console.log("Password:", password);
+    
+  }
+
+  
   return (
-    <div className='login__section'>
+    <div className="login__section">
       <div className="login__container">
         <div className="login__logo">
-          <img src="./Tree.png" alt="anh ne" className="login__img"/>
-          <h1 >Smart Sprout</h1>
+          <img src="./Tree.png" alt="anh ne" className="login__img" />
+          <h1>Smart Sprout</h1>
         </div>
-        <div className="login__form"> 
+        <div className="login__form">
           <h2 className="h2__title">Đăng nhập</h2>
 
-          <label htmlFor="" className="lable">Tên đăng nhập</label>
-          <input type="text" className="input__login" placeholder='Nhập tên đăng nhập' />
+          <label htmlFor="" className="lable">
+            Tên đăng nhập
+          </label>
+          <input
+            type="text"
+            className="input__login"
+            placeholder="Nhập tên đăng nhập"
+            onChange={(e) => setUserName(e.target.value)}
+          />
 
-          <label htmlFor="" className="lable">Mật khẩu</label>
-          <input type="password" className="input__login" placeholder='Nhập mật khẩu'/>
+          <label htmlFor="" className="lable">
+            Mật khẩu
+          </label>
+          <input
+            type="password"
+            className="input__login"
+            placeholder="Nhập mật khẩu"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <a href="/forget_page">Quên mật khẩu</a>
 
-          <button className="btn__login">Đăng nhập</button>
-
+          <button className="btn__login" onClick={handleSubmit}>Đăng nhập</button>
+          <p>
+            Bạn mới biết đến SmartSprout? <a href="/signup_page">Đăng ký</a>
+          </p>
         </div>
       </div>
-
-      
     </div>
-  )
-}
+  );
+};
 
-export default LoginPage
+export default LoginPage;

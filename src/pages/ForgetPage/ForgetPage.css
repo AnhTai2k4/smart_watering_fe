@@ -1,4 +1,4 @@
-.login__section {
+.signup__section {
   background-color: #b2da8a;
   height: 100vh;
   display: flex;
@@ -7,14 +7,14 @@
  
   font-family: 'open sans', sans-serif;
 
-  & .login__container {
+  & .signup__container {
     display: flex;
     flex-direction: column;
     gap: 20px;
     align-items: center;
 
 
-    & .login__logo {
+    & .signup__logo {
       display: flex;
       align-items: center;
       gap: 10px;
@@ -25,13 +25,13 @@
         font-weight: 700;
       }
 
-      & .login__img {
+      & .signup__img {
         width: 5rem;
         height: 5rem;
       }
     }
 
-    & .login__form {
+    & .signup__form {
         display: flex;
         flex-direction: column;
         gap:10px;
@@ -53,7 +53,7 @@
             font-weight: 500;
         }
 
-        & .input__login{
+        & .input__signup{
             height: 1.8rem;
             border-radius: 10px;
             border: 1px solid #b2da8a;
@@ -62,7 +62,7 @@
 
         }
 
-        & .btn__login{
+        & .btn__signup{
             margin-top: 20px;
             height: 2rem;
             border-radius: 15px;
