@@ -1,6 +1,5 @@
 import { createContext, useState } from "react";
 
-
 interface UserContextType {
   userName: String;
   setUserName: (name: String) => void;

@@ -1,8 +1,7 @@
-
 import "./ForgetPage.css"
 const ForgetPage = () => {
   return (
-        <div className="signup__section">
+    <div className="signup__section">
       <div className="signup__container">
         <div className="signup__logo">
           <img src="./Tree.png" alt="anh ne" className="signup__img" />
@@ -37,10 +36,9 @@ const ForgetPage = () => {
             className="input__signup"
             placeholder="Nhập mật khẩu"
           />
-          
 
           <button className="btn__signup">Xác nhận</button>
-          
+
         </div>
       </div>
     </div>

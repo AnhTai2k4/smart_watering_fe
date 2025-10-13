@@ -1,8 +1,12 @@
-
+import { Navigate, useNavigate } from "react-router-dom"
 import "./SignupPage.css"
 const SignupPage = () => {
+  const navigate = useNavigate()
+  const handleLoginClick = () => {
+    navigate("/");
+  }
   return (
-        <div className="signup__section">
+    <div className="signup__section">
       <div className="signup__container">
         <div className="signup__logo">
           <img src="./Tree.png" alt="anh ne" className="signup__img" />
@@ -37,10 +41,11 @@ const SignupPage = () => {
             className="input__signup"
             placeholder="Nhập mật khẩu"
           />
-          
 
-          <button className="btn__signup">Đăng ký</button>
-          
+          <div className="btn__group">
+            <button className="btn__login" onClick={handleLoginClick}>Quay lại</button>
+            <button className="btn__signup">Đăng ký</button>
+          </div>
         </div>
       </div>
     </div>

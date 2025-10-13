@@ -14,7 +14,6 @@ const LoginPage = () => {
     console.log("Password:", password);
     
   }
-
   
   return (
     <div className="login__section">

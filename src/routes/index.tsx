@@ -12,31 +12,30 @@ interface RouteType {
     showHeader: boolean,
 }
 
-const routes : RouteType[] = [
+const routes: RouteType[] = [
     {
-        path:  "/",
-        element: <LoginPage/>,
+        path: "/",
+        element: <LoginPage />,
         showHeader: false,
     },
     {
         path: "/device_page",
         element: <DevicePage></DevicePage>,
         showHeader: true,
-        
     },
     {
         path: "/login_page",
-        element: <LoginPage/>,
+        element: <LoginPage />,
         showHeader: false,
     },
     {
         path: "/signup_page",
-        element: <SignupPage/>,
+        element: <SignupPage />,
         showHeader: false,
     },
     {
         path: "/forget_page",
-        element: <ForgetPage/>,
+        element: <ForgetPage />,
         showHeader: false,
     },
     {
