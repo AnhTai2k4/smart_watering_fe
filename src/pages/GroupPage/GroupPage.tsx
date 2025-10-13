@@ -3,8 +3,7 @@ import React from 'react'
 const GroupPage = () => {
   return (
     <div>
-        group page
-        
+        Group Page
     </div>
   )
 }

@@ -10,6 +10,7 @@ interface RouteType {
     path: string,
     element: React.ReactNode,
     showHeader: boolean,
+    showFooter: boolean
 }
 
 const routes: RouteType[] = [
@@ -17,36 +18,43 @@ const routes: RouteType[] = [
         path: "/",
         element: <LoginPage />,
         showHeader: false,
+        showFooter: false
     },
     {
         path: "/device_page",
-        element: <DevicePage></DevicePage>,
+        element: <DevicePage />,
         showHeader: true,
+        showFooter: true
     },
     {
         path: "/login_page",
         element: <LoginPage />,
         showHeader: false,
+        showFooter: false
     },
     {
         path: "/signup_page",
         element: <SignupPage />,
         showHeader: false,
+        showFooter: false
     },
     {
         path: "/forget_page",
         element: <ForgetPage />,
         showHeader: false,
+        showFooter: false
     },
     {
         path: "/group_page",
         element: <GroupPage></GroupPage>,
         showHeader: true,
+        showFooter: true
     },
     {
         path: "/config_page",
-        element: <ConfigPage></ConfigPage>,
+        element: <ConfigPage />,
         showHeader: true,
+        showFooter: true
     },
 ]
 

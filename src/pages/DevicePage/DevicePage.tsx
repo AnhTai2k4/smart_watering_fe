@@ -1,8 +1,8 @@
 const DevicePage = () => {
   return (
     <div>
-        device page
-      
+        Device Page
+        
     </div>
   )
 }
