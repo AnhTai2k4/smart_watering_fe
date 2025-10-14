@@ -1,10 +1,7 @@
-
-
 const GroupPage = () => {
   return (
     <div>
-        group page
-      
+        Group Page
     </div>
   )
 }

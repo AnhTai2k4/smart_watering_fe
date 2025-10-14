@@ -3,6 +3,7 @@ import { UserContext } from "../../contexts/UserContext";
 import "./SignupPage.css";
 import { signup } from "../../services/UserService";
 import { useNavigate } from "react-router-dom";
+import "./SignupPage.css"
 const SignupPage = () => {
   const { userName, setUserName, password, setPassword } =
     useContext(UserContext);
@@ -24,6 +25,9 @@ const SignupPage = () => {
     }
   };
 
+  const handleLoginClick = () => {
+    navigate("/");
+  }
   return (
     <div className="signup__section">
       <div className="signup__container">
@@ -67,6 +71,12 @@ const SignupPage = () => {
           <button className="btn__signup" onClick={handleSubmit}>
             Đăng ký
           </button>
+          
+
+          <div className="btn__group">
+            <button className="btn__login" onClick={handleLoginClick}>Quay lại</button>
+            <button className="btn__signup">Đăng ký</button>
+          </div>
         </div>
       </div>
     </div>

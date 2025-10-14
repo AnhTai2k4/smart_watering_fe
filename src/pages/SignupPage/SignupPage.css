@@ -13,7 +13,6 @@
     gap: 20px;
     align-items: center;
 
-
     & .signup__logo {
       display: flex;
       align-items: center;
@@ -62,6 +61,15 @@
 
         }
 
+        & .btn__group{
+          display: flex;
+          gap: 10px;
+          margin-top: 20px;
+          justify-content: center;
+          width: 100%;
+        }
+
+        & .btn__login, 
         & .btn__signup{
             margin-top: 20px;
             height: 2rem;
@@ -72,6 +80,7 @@
             font-size: 1rem;
             font-weight: 400;
             cursor: pointer;
+            flex: 1
 
             &:hover{
                 background-color: #2e5520;
@@ -82,7 +91,6 @@
             margin-top: 15px;
             color: rgba(0, 0, 0, 0.4);
             text-align: center;
-            
         }
 
         & a{
