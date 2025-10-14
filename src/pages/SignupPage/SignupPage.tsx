@@ -67,15 +67,10 @@ const SignupPage = () => {
             placeholder="Nhập mật khẩu"
             onChange={(e) => setRePassword(e.target.value)}
           />
-
-          <button className="btn__signup" onClick={handleSubmit}>
-            Đăng ký
-          </button>
           
-
           <div className="btn__group">
             <button className="btn__login" onClick={handleLoginClick}>Quay lại</button>
-            <button className="btn__signup">Đăng ký</button>
+            <button className="btn__signup" onClick={handleSubmit}>Đăng ký</button>
           </div>
         </div>
       </div>
