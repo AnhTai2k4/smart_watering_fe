@@ -1,18 +1,18 @@
 import "./LoginPage.css";
 import { UserContext } from "../../contexts/UserContext";
 import { useContext } from "react";
-// import { login } from "../../services/UserService";
+import { login } from "../../services/UserService";
 import { useNavigate } from "react-router-dom";
 const LoginPage = () => {
   const {userName, setUserName, password, setPassword} = useContext(UserContext);
   const navigate = useNavigate();
-  const handleSubmit = () => {
-    // const res = login(userName as string, password as string);
-    navigate("/device_page");
-    
-    console.log("Username:", userName);
-    console.log("Password:", password);
-    
+  const handleSubmit = async () => {
+    const res = await login(userName as string, password as string);
+    console.log(res);
+
+    if(res!== null) navigate("/device_page");
+    else alert("Đăng nhập thất bại");
+  
   }
 
   
