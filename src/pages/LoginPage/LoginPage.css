@@ -64,7 +64,7 @@
         }
 
         & .btn__login{
-            margin-top: 20px;
+            margin-top: 0px;
             height: 2rem;
             border-radius: 15px;
             border: none;
@@ -80,7 +80,7 @@
         }
         & p{
             font-size: 0.9rem;
-            margin-top: 15px;
+            margin-top: 10px;
             color: rgba(0, 0, 0, 0.4);
             text-align: center;
             

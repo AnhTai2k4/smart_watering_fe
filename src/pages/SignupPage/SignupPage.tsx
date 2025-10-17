@@ -1,9 +1,8 @@
 import { useContext, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
-import "./SignupPage.css";
 import { signup } from "../../services/UserService";
 import { useNavigate } from "react-router-dom";
-import "./SignupPage.css"
+import "./SignupPage.css";
 const SignupPage = () => {
   const { userName, setUserName, password, setPassword } =
     useContext(UserContext);
@@ -27,13 +26,13 @@ const SignupPage = () => {
 
   const handleLoginClick = () => {
     navigate("/");
-  }
+  };
   return (
     <div className="signup__section">
       <div className="signup__container">
         <div className="signup__logo">
           <img src="./Tree.png" alt="anh ne" className="signup__img" />
-          <h1>Smart Sprout</h1>
+          <h1>Smart Watering</h1>
         </div>
         <div className="signup__form">
           <h2 className="h2__title">Đăng ký</h2>
@@ -67,10 +66,14 @@ const SignupPage = () => {
             placeholder="Nhập mật khẩu"
             onChange={(e) => setRePassword(e.target.value)}
           />
-          
+
           <div className="btn__group">
-            <button className="btn__login" onClick={handleLoginClick}>Quay lại</button>
-            <button className="btn__signup" onClick={handleSubmit}>Đăng ký</button>
+            <button className="btn__login" onClick={handleLoginClick}>
+              Quay lại
+            </button>
+            <button className="btn__signup" onClick={handleSubmit}>
+              Đăng ký
+            </button>
           </div>
         </div>
       </div>

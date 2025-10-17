@@ -20,7 +20,7 @@ const LoginPage = () => {
       <div className="login__container">
         <div className="login__logo">
           <img src="./Tree.png" alt="anh ne" className="login__img" />
-          <h1>Smart Sprout</h1>
+          <h1>Smart Watering</h1>
         </div>
         <div className="login__form">
           <h2 className="h2__title">Đăng nhập</h2>
