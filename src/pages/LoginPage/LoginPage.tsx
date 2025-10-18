@@ -1,5 +1,5 @@
 import "./LoginPage.css";
-import { UserContext } from "../../contexts/UserContext";
+import { UserContext } from "../../contexts/UserContext/UserContext";
 import { useContext } from "react";
 import { login } from "../../services/UserService";
 import { useNavigate } from "react-router-dom";

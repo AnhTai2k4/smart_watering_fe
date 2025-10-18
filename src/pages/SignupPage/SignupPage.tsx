@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { UserContext } from "../../contexts/UserContext";
+import { UserContext } from "../../contexts/UserContext/UserContext";
 import { signup } from "../../services/UserService";
 import { useNavigate } from "react-router-dom";
 import "./SignupPage.css";
