@@ -4,6 +4,10 @@ import "./DevicePage.css";
 const DevicePage = () => {
   return (
     <div className="device__page">
+      <div className="navigator">
+        <a href="./device_page">Tất cả thiết bị</a>
+        <a href="./group_page">Nhóm thiết bị</a>
+      </div>
       <div className="device__section">
         <h2>Xin chào, Anh Tài!</h2>
         <p>Chọn một trong các thiết bị sau:</p>
@@ -12,6 +16,7 @@ const DevicePage = () => {
           <Device_card deviceName="Tai" />
           <Device_card deviceName="Tai" />
           <Device_card deviceName="Tai" />
+          {/* Chỗ này sau sẽ có API fetch dữ liệu từ BE về */}
         </div>
 
 
