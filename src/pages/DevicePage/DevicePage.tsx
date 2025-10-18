@@ -13,6 +13,8 @@ const DevicePage = () => {
           <Device_card deviceName="Tai" />
           <Device_card deviceName="Tai" />
         </div>
+
+
         <div className="dropup-center dropup dropup__container">
           <button
             className="btn btn-secondary dropdown-toggle btn__container"
@@ -20,24 +22,36 @@ const DevicePage = () => {
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            <img src="./add_button.png" alt="add_button" className="add__icon" />
+            <img
+              src="./add_button.png"
+              alt="add_button"
+              className="add__icon"
+            />
             <h3>Thêm</h3>
           </button>
           <ul className="dropdown-menu">
             <li>
-              <a className="dropdown-item" href="" onClick={()=>{return <CreateDevice/>}}>
+              <a
+                className="dropdown-item"
+                href=""
+                data-bs-toggle="modal" 
+                data-bs-target="#deviceModal"
+              >
                 Thêm thiết bị
               </a>
             </li>
-            <hr/>
+            <hr />
             <li>
               <a className="dropdown-item" href="#">
                 Thêm nhóm
               </a>
-            </li>           
+            </li>
           </ul>
         </div>
       </div>
+
+      {/* ------------------Modal ---------------------*/}
+      <CreateDevice/>
     </div>
   );
 };
