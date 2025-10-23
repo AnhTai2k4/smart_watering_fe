@@ -1,7 +1,14 @@
 import Device_card from "../../components/Device_card/Device_card";
 import CreateDevice from "../../components/CreateDevice/CreateDevice";
 import "./DevicePage.css";
+import { useDeviceContext } from "../../contexts/DeviceContext/DeviceContext";
+import { useEffect } from "react";
 const DevicePage = () => {
+
+  const {devices} = useDeviceContext()
+  useEffect(()=>{
+    console.log(devices)
+  },[devices])
   return (
     <div className="device__page">
       <div className="navigator">
@@ -12,10 +19,11 @@ const DevicePage = () => {
         <h2>Xin chào, Anh Tài!</h2>
         <p>Chọn một trong các thiết bị sau:</p>
         <div className="device__container">
-          <Device_card deviceName="Tai" />
-          <Device_card deviceName="Tai" />
-          <Device_card deviceName="Tai" />
-          <Device_card deviceName="Tai" />
+          {
+            devices.map((device)=>{
+              return (<Device_card deviceName={device.name} />)
+            })
+          }
           {/* Chỗ này sau sẽ có API fetch dữ liệu từ BE về */}
         </div>
 

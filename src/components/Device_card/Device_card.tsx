@@ -15,7 +15,7 @@ const Device_card= ({deviceName}:deviceCardProps) => {
         </div>
         
         <div className="device_name">
-            <h3>{deviceName} ne</h3>
+            <h3>{deviceName}</h3>
 
         </div>
         

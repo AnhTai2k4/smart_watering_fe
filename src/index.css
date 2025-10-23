@@ -129,6 +129,7 @@ table {
 }
 
 :root {
+  overflow-x: hidden ;
   box-sizing: border-box;
   font-family: 'open sans', sans-serif;
   /*================================= 

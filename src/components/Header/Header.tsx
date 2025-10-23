@@ -11,10 +11,10 @@ function Header() {
         <h1 className="logo" onClick={()=>{navigate("/device_page")}}>Smart Watering</h1>
       </div>
 
-      <div className="navigate__container">
+      {/* <div className="navigate__container">
         <a href="./device_page">Tất cả thiết bị</a>
         <a href="./group_page">Nhóm thiết bị</a>
-      </div>
+      </div> */}
 
       <nav className="notiandvery">
         <img src="/Bell.png" />
