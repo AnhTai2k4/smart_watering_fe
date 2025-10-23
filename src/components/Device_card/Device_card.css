@@ -16,6 +16,10 @@
         align-self: flex-end;
         width: 2.5rem;
         height: 2.5rem;
+
+        & :hover{
+            cursor: pointer;
+        }
         
     }
 

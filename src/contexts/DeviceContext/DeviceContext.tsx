@@ -1,43 +1,40 @@
 // src/contexts/DeviceContext.tsx
-import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
+import { createContext, useContext, useState, type ReactNode } from "react";
+
 
 interface Device {
-  deviceId: string;
-  name: string;
-  topicSensor: string;
-  topicWatering: string;
+  id:String;
+  deviceId: String;
+  name: String;
+  topicSensor: String;
+  topicWatering: String;
+  createdAt: String;
+  updatedAt: String;
 }
 
 interface DeviceContextType {
   devices: Device[];
+  setDevices: (device:Device[]) => void,
   addDevice: (device: Device) => void;
-  removeDevice: (id: string) => void;
+  removeDevice: (id: String) => void;
 }
 
 const DeviceContext = createContext<DeviceContextType | undefined>(undefined);
 
 export const DeviceProvider = ({ children }: { children: ReactNode }) => {
-  const [devices, setDevices] = useState<Device[]>(() => {
-    // ✅ Lấy từ localStorage khi load trang
-    const stored = localStorage.getItem("devices");
-    return stored ? JSON.parse(stored) : [];
-  });
+  const [devices, setDevices] = useState<Device[]>([]);
 
-  // ✅ Mỗi khi devices thay đổi, lưu lại vào localStorage
-  useEffect(() => {
-    localStorage.setItem("devices", JSON.stringify(devices));
-  }, [devices]);
 
   const addDevice = (device: Device) => {
     setDevices((prev) => [...prev, device]);
   };
 
-  const removeDevice = (deviceId: string) => {
-    setDevices((prev) => prev.filter((device) => device.deviceId !== deviceId));
+  const removeDevice = (id: String) => {
+    setDevices((prev) => prev.filter((device) => device.id !== id));
   };
 
   return (
-    <DeviceContext.Provider value={{ devices, addDevice, removeDevice }}>
+    <DeviceContext.Provider value={{ devices, setDevices, addDevice, removeDevice }}>
       {children}
     </DeviceContext.Provider>
   );

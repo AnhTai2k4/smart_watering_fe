@@ -1,30 +1,17 @@
 import "./CreateDevice.css";
 import { useDeviceContext } from "../../contexts/DeviceContext/DeviceContext";
 import { useState } from "react";
-import { createDevice } from "../../services/DeviceService/DeviceService";
-import { useNavigate } from "react-router-dom";
-// import * as bootstrap from "bootstrap";
+import { createDevice} from "../../services/DeviceService/DeviceService";
+
 const CreateDevice = () => {
   const [deviceName, setDeviceName] = useState<string>("");
   const [deviceId, setDeviceId] = useState<String>("");
-  const { devices, addDevice } = useDeviceContext();
-  const navigate = useNavigate()
+  const { addDevice } = useDeviceContext();
 
-  const handleCreateDevice = async () => {
-    const deviceData = await createDevice(deviceId, deviceName);
-    addDevice(deviceData.data);
-
-    console.log("device vua add", deviceData.data);
-    console.log("devices", devices);
-
-    // ✅ Đóng modal sau khi thêm xong
-    // const modalElement = document.getElementById("deviceModal");
-    // if (modalElement) {
-    //   const modalInstance = bootstrap.Modal.getInstance(modalElement);
-    //   modalInstance?.hide();
-    // }
-
-    navigate('/device_page')
+  const handleCreateDevice = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+    const newDevice= await createDevice(deviceId, deviceName)
+    addDevice(newDevice)
   };
 
   return (
@@ -89,7 +76,7 @@ const CreateDevice = () => {
             <button
               type="button"
               className="btn btn-primary"
-              onClick={handleCreateDevice}
+              onClick={(e)=>handleCreateDevice(e)}
             >
               Thêm
             </button>

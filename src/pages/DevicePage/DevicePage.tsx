@@ -2,13 +2,23 @@ import Device_card from "../../components/Device_card/Device_card";
 import CreateDevice from "../../components/CreateDevice/CreateDevice";
 import "./DevicePage.css";
 import { useDeviceContext } from "../../contexts/DeviceContext/DeviceContext";
+import { getAllDevice } from "../../services/DeviceService/DeviceService";
 import { useEffect } from "react";
-const DevicePage = () => {
 
-  const {devices} = useDeviceContext()
+
+const DevicePage =  () => {
+
+  const {devices,setDevices} = useDeviceContext()
+  
   useEffect(()=>{
-    console.log(devices)
-  },[devices])
+    const fetchDevice = async() =>{
+      const result = await getAllDevice();
+      console.log("all device", result)
+      setDevices(result.data)
+    }
+    fetchDevice()
+  },[])
+
   return (
     <div className="device__page">
       <div className="navigator">
@@ -20,8 +30,8 @@ const DevicePage = () => {
         <p>Chọn một trong các thiết bị sau:</p>
         <div className="device__container">
           {
-            devices.map((device)=>{
-              return (<Device_card deviceName={device.name} />)
+            devices.map((device,id)=>{
+              return (<Device_card key={id} deviceName={device.name} id= {device.id} />)
             })
           }
           {/* Chỗ này sau sẽ có API fetch dữ liệu từ BE về */}
