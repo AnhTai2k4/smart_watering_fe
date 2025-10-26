@@ -9,15 +9,17 @@ import { useEffect } from "react";
 const DevicePage =  () => {
 
   const {devices,setDevices} = useDeviceContext()
+
+  console.log("devices: ", devices)
   
   useEffect(()=>{
     const fetchDevice = async() =>{
       const result = await getAllDevice();
-      console.log("all device", result)
       setDevices(result.data)
     }
     fetchDevice()
   },[])
+
 
   return (
     <div className="device__page">
@@ -31,6 +33,7 @@ const DevicePage =  () => {
         <div className="device__container">
           {
             devices.map((device,id)=>{
+              // console.log(id, "  device name: " , device.name)
               return (<Device_card key={id} deviceName={device.name} id= {device.id} />)
             })
           }

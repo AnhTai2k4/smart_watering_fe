@@ -15,7 +15,9 @@
     "bootstrap": "^5.3.8",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-linechart": "^1.1.12",
     "react-router-dom": "^7.9.3",
+    "recharts": "^3.3.0",
     "sass": "^1.93.2"
   },
   "devDependencies": {

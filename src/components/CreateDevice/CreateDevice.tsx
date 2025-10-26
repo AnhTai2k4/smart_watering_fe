@@ -1,18 +1,23 @@
 import "./CreateDevice.css";
 import { useDeviceContext } from "../../contexts/DeviceContext/DeviceContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createDevice} from "../../services/DeviceService/DeviceService";
 
 const CreateDevice = () => {
   const [deviceName, setDeviceName] = useState<string>("");
   const [deviceId, setDeviceId] = useState<String>("");
-  const { addDevice } = useDeviceContext();
+  const {devices, addDevice } = useDeviceContext();
 
   const handleCreateDevice = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
     const newDevice= await createDevice(deviceId, deviceName)
-    addDevice(newDevice)
+    addDevice(newDevice.data)
+    
   };
+
+  useEffect(()=>{console.log("devices sau khi add new device", devices)},[devices])
+  
+
 
   return (
     <div
