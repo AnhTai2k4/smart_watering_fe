@@ -1,0 +1,13 @@
+.group__card {
+  background-color: #1e1e1e;
+  color: white;
+  border-radius: 20px;
+  padding: 16px;
+  text-align: center;
+  width: 180px;
+  transition: 0.2s;
+}
+.group__card:hover {
+  background-color: #313131;
+  cursor: pointer;
+}
