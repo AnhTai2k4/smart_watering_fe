@@ -97,7 +97,7 @@
   & .device__container {
     display: flex;
     justify-content: start;
-    gap: 50px;
+    gap: 60px;
     width: 80%;
     align-self: center;
     flex-wrap: wrap;

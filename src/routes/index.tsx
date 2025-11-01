@@ -61,7 +61,7 @@ const routes: RouteType[] = [
         path: "/data_device_page/:id",
         element: <DataDevicePage />,
         showHeader: true,
-        showFooter: false
+        showFooter: true
     },
 ]
 

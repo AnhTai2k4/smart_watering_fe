@@ -1,29 +1,21 @@
 import { useNavigate, useParams } from "react-router-dom";
 import "./DataDevicePage.css";
 import { useState } from "react";
-import {
-  CartesianGrid,
-  Line,
-  LineChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
+import ChartData from "../../components/ChartData/ChartData";
 
 const DataDevicePage = () => {
   const [water, setWater] = useState(0);
   const navigate = useNavigate();
   const id = useParams();
 
-  const data = [
-    { name: "Page A", uv: 4000, pv: 2400, amt: 2400 },
-    { name: "Page B", uv: 3000, pv: 1398, amt: 2210 },
-    { name: "Page C", uv: 2000, pv: 9800, amt: 2290 },
-    { name: "Page D", uv: 2780, pv: 3908, amt: 2000 },
-    { name: "Page E", uv: 1890, pv: 4800, amt: 2181 },
-    { name: "Page F", uv: 2390, pv: 3800, amt: 2500 },
-    { name: "Page G", uv: 3490, pv: 4300, amt: 2100 },
+  const datas = [
+    { time: "Page A", data: 4000 },
+    { time: "Page B", data: 3000 },
+    { time: "Page C", data: 2000 },
+    { time: "Page D", data: 2780 },
+    { time: "Page E", data: 1890 },
+    { time: "Page F", data: 2390 },
+    { time: "Page G", data: 3490 },
   ];
 
   console.log(id);
@@ -70,7 +62,7 @@ const DataDevicePage = () => {
           {/*----------------Hiển thị lịch sử bơm-------------------*/}
           <div className="schedule__box">
             <h3>Lịch sử bơm</h3>
-            
+
             <table className="my-table">
               <thead>
                 <tr>
@@ -96,6 +88,7 @@ const DataDevicePage = () => {
 
         {/*-----------------Dữ liệu của nhiệt độ, độ ẩm từ sensor------------*/}
         <div className="data__container">
+          {/**---------Nhiệt độ------------- */}
           <div id="temp" className="data__box">
             <div className="label">
               <div className="label-left">
@@ -106,60 +99,36 @@ const DataDevicePage = () => {
                 <h3>27.5 ℃</h3>
               </div>
             </div>
-
-            <ResponsiveContainer width="100%" height={280}>
-              <LineChart
-                width={500}
-                height={400}
-                data={data}
-                margin={{
-                  top: 5,
-                  right: 30,
-                  left: 20,
-                  bottom: 5,
-                }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <legend />
-                <Line type="monotone" dataKey="uv" stroke="#f27474ff" />
-              </LineChart>
-            </ResponsiveContainer>
+            <ChartData datas={datas} />
           </div>
+
+          {/**---------Độ ẩm không khí---------------- */}
 
           <div id="temp" className="data__box">
             <div className="label">
               <div className="label-left">
                 <img src="/humid.png" alt="logo nhiet do" />
-                <h3>Độ ẩm</h3>
+                <h3>Độ ẩm không khí</h3>
               </div>
               <div className="label-right">
                 <h3>27.5 ℃</h3>
               </div>
             </div>
+            <ChartData datas={datas} />
+          </div>
 
-            <ResponsiveContainer width="100%" height={280}>
-              <LineChart
-                width={500}
-                height={400}
-                data={data}
-                margin={{
-                  top: 5,
-                  right: 30,
-                  left: 20,
-                  bottom: 5,
-                }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <legend />
-                <Line type="monotone" dataKey="uv" stroke="#7aa9f0ff" />
-              </LineChart>
-            </ResponsiveContainer>
+          {/**------------Độ ẩm đất---------------------- */}
+          <div id="temp" className="data__box">
+            <div className="label">
+              <div className="label-left">
+                <img src="/humid.png" alt="logo nhiet do" />
+                <h3>Độ ẩm đất</h3>
+              </div>
+              <div className="label-right">
+                <h3>27.5 ℃</h3>
+              </div>
+            </div>
+            <ChartData datas={datas} />
           </div>
         </div>
       </div>

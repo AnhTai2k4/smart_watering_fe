@@ -117,50 +117,6 @@
       }
     }
 
-    & .data__container {
-      flex: 2;
-      flex-direction: column;
-      height: max-content;
-      margin-right: 20px;
-
-      & .data__box {
-        height: fit-content;
-        width: 100%;
-        border: 1px;
-        flex: 1;
-        margin: 30px 0px;
-        background-color: white;
-        border-radius: 20px;
-        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2),
-          inset 1px 1px 1.5px rgba(0, 0, 0, 0.3);
-        padding: 20px 20px;
-
-        & .label {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          margin: 30px 20px;
-          
-          & img{
-            width: 30px;
-            height: 40px;
-          }
-
-          & .label-left,
-          .label-right {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-
-            & h3{
-              margin-left: 20px;
-
-            }
-          }
-        }
-      }
-    }
   }
 }
 
