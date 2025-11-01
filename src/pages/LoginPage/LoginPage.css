@@ -3,7 +3,9 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-top: 8rem;
+  /* padding-top: 8rem; */
+  justify-content: center;
+  
  
   font-family: 'open sans', sans-serif;
   

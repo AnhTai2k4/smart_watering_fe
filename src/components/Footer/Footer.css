@@ -1,3 +1,7 @@
+#root {
+   
+    height: 100vh;
+}
 .footer {
     width: 100vw;
     display: flex;
@@ -8,6 +12,7 @@
     padding: 20px 40px;
     color: #3a6f2a;
     font-family: 'open sans', sans-serif;
+   
 }
 
 .footer__left {

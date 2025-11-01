@@ -1,7 +1,7 @@
 import "./LoginPage.css";
-import { UserContext } from "../../contexts/UserContext";
+import { UserContext } from "../../contexts/UserContext/UserContext";
 import { useContext } from "react";
-import { login } from "../../services/UserService";
+import { login } from "../../services/UserService/UserService";
 import { useNavigate } from "react-router-dom";
 const LoginPage = () => {
   const {userName, setUserName, password, setPassword} = useContext(UserContext);
@@ -9,6 +9,8 @@ const LoginPage = () => {
   const handleSubmit = async () => {
     const res = await login(userName as string, password as string);
     console.log(res);
+    localStorage.setItem("token",res.data.accessToken)
+    console.log("token", localStorage.getItem("token"))
 
     if(res!== null) navigate("/device_page");
     else alert("Đăng nhập thất bại");
