@@ -30,7 +30,7 @@ const GroupPage = () => {
   return (
     <div className="group__page">
       <div className="navigator">
-        <a href="./device_page">Tat ca thiet bi</a>
+        <a href="./device_page">Tat ca nhóm</a>
         <a href="./group_page">Nhom thiet bi</a>
       </div>
 
