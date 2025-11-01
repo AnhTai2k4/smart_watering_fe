@@ -1,13 +1,47 @@
-.group__card {
-  background-color: #1e1e1e;
-  color: white;
-  border-radius: 20px;
-  padding: 16px;
-  text-align: center;
-  width: 180px;
-  transition: 0.2s;
-}
-.group__card:hover {
-  background-color: #313131;
-  cursor: pointer;
+.device__card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 10rem;
+    height:18rem;
+    background-color: #98D8AA ;
+    gap:30px;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    padding-right:10px;
+    
+
+    & .trash_icon{
+        margin-top: 10px;
+        display: flex;
+        align-self: flex-end;
+        width: 2.5rem;
+        height: 2.5rem;
+
+        & :hover{
+            cursor: pointer;
+        }
+        
+    }
+
+    & .tree_icon{
+        
+        width: 80px;
+        height: 120px;
+        align-self:center;
+        justify-self: center;
+    }
+
+    & .device_name{
+        text-align: center;
+        height: 1.5rem;
+    }
+
+    & h3{
+        font-size: var(--h3-font-size);
+        line-height: var(--h3-line-height);
+        color: white;
+        align-self: center;
+        height:min-content;
+    }
 }
