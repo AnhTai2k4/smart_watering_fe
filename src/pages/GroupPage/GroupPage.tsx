@@ -4,6 +4,10 @@ import "./GroupPage.css";
 const GroupPage = () => {
   return (
     <div className="device__page">
+      <div className="navigator">
+        <a href="./device_page">Tất cả thiết bị</a>
+        <a href="./group_page">Nhóm thiết bị</a>
+      </div>
       <div className="device__section">
         <h2>Xin chào, Anh Tài!</h2>
         <p>Chọn một trong các nhóm sau:</p>
@@ -20,21 +24,31 @@ const GroupPage = () => {
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            <img src="./add_button.png" alt="add_button" className="add__icon" />
+            <img
+              src="./add_button.png"
+              alt="add_button"
+              className="add__icon"
+            />
             <h3>Thêm</h3>
           </button>
           <ul className="dropdown-menu">
             <li>
-              <a className="dropdown-item" href="" onClick={()=>{return <CreateDevice/>}}>
+              <a
+                className="dropdown-item"
+                href=""
+                onClick={() => {
+                  return <CreateDevice />;
+                }}
+              >
                 Thêm thiết bị
               </a>
             </li>
-            <hr/>
+            <hr />
             <li>
               <a className="dropdown-item" href="#">
                 Thêm nhóm
               </a>
-            </li>           
+            </li>
           </ul>
         </div>
       </div>

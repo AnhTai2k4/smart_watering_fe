@@ -129,7 +129,9 @@ table {
 }
 
 :root {
+  overflow-x: hidden ;
   box-sizing: border-box;
+  font-family: 'open sans', sans-serif;
   /*================================= 
         FONTS -  Sử dụng Scale 1.125
     =================================*/

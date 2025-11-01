@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
-import { UserContext } from "../../contexts/UserContext";
-import { signup } from "../../services/UserService";
+import { UserContext } from "../../contexts/UserContext/UserContext";
+import { signup } from "../../services/UserService/UserService";
 import { useNavigate } from "react-router-dom";
 import "./SignupPage.css";
 const SignupPage = () => {

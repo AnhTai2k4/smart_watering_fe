@@ -9,6 +9,66 @@
   /* padding: 30px 30px 30px 30px; */
 }
 
+.navigator {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 160px;
+  margin-right: 24px;
+  align-self: flex-start;
+  
+}
+
+/* Các link thành button */
+.navigator a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(46, 125, 50, 0.12);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+}
+
+/* Button trên (primary) */
+.navigator a:nth-child(1) {
+  background: linear-gradient(135deg, #7bd36a 0%, #4fa43a 100%);
+}
+
+/* Button dưới (secondary) */
+.navigator a:nth-child(2) {
+  background: linear-gradient(135deg, #dff4df 0%, #b8e6a8 100%);
+  color: #1f5a20;
+  box-shadow: 0 3px 8px rgba(31, 90, 32, 0.08);
+}
+
+/* Hover / active */
+.navigator a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(46, 125, 50, 0.16);
+}
+
+/* Responsive: thu gọn thành hàng ngang trên màn nhỏ */
+@media (max-width: 768px) {
+  .navigator {
+    flex-direction: row;
+    width: auto;
+    gap: 10px;
+    margin-right: 0;
+    align-self: center;
+  }
+
+  .navigator a {
+    width: auto;
+    padding: 8px 12px;
+    border-radius: 10px;
+  }
+}
+
 .device__section {
   display: flex;
   flex-direction: column;
@@ -20,6 +80,7 @@
   border: 2px solid none;
   padding: 40px;
   gap: 10px;
+  position: relative;
 
   & h2 {
     font-size: var(--h2-font-size);
@@ -45,6 +106,9 @@
   & .dropup__container {
     align-self: end;
     margin-top: 120px;
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
     
 
     & .btn__container{
