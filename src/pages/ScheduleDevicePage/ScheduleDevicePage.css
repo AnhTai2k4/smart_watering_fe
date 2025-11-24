@@ -1,0 +1,451 @@
+/* Màu sắc cơ bản */
+:root {
+  --primary-color: #4CAF50;
+  /* Màu xanh lá cây chính */
+  --secondary-color: #66BB6A;
+  /* Màu xanh lá cây phụ */
+  --text-dark: #333;
+  --text-light: #555;
+  --bg-light: #F8F8F8;
+  --card-bg: #FFFFFF;
+  --border-color: #E0E0E0;
+}
+
+/* Reset và Layout cơ bản */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-light);
+}
+
+.smartsprout-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- 1. Header --- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.header-controls {
+  font-size: 20px;
+}
+
+.header-controls i {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.back__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  height: 60px;
+  box-shadow: 0px 1px rgba(0, 0, 0, 0.5);
+
+  & img {
+    height: 2rem;
+    width: 2rem;
+    margin: 20px 20px;
+  }
+
+  & h3 {
+    font-size: var(--h3-font-size);
+    line-height: var(--h3-line-height);
+    color: #348e2b;
+    font-weight: 700;
+    margin: 20px 20px;
+
+    & span {
+      font-size: var(--h3-font-size);
+      line-height: var(--h3-line-height);
+      color: #348e2b;
+      font-weight: 400;
+    }
+  }
+}
+
+/* --- 2. Main Content & Cards --- */
+.main-content {
+  padding: 20px 30px;
+}
+
+.device-title {
+  color: var(--text-dark);
+  font-size: 24px;
+  margin: 0;
+  padding-bottom: 5px;
+}
+
+.last-update {
+  color: var(--secondary-color);
+  font-size: 14px;
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.card-layout {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  background-color: var(--card-bg);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  flex: 1;
+}
+
+.schedule-card {
+  flex-basis: 40%;
+  /* Cho card lịch nhỏ hơn */
+}
+
+.add-schedule-card {
+  flex-basis: 60%;
+  /* Cho card thêm lịch lớn hơn */
+}
+
+.card-title {
+  color: var(--text-dark);
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 15px;
+}
+
+.card-title i {
+  margin-right: 10px;
+  color: var(--primary-color);
+}
+
+/* --- 3. Lịch tưới cây (Schedule Items) --- */
+.schedule-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background-color: var(--bg-light);
+}
+
+.schedule-item:nth-child(2) {
+  background-color: #e8f5e9;
+  /* Nền xanh nhẹ hơn cho mục đang bật */
+}
+
+.schedule-item .time {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text-dark);
+}
+
+.schedule-item .frequency-amount {
+  font-size: 14px;
+  flex-grow: 1;
+  margin: 0px 20px;
+  color: var(--text-light);
+}
+
+.schedule-item .controls {
+  display: flex;
+  align-items: center;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 18px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  color: #f44336;
+}
+
+/* Toggle Switch CSS */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 25px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: var(--primary-color);
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px var(--primary-color);
+}
+
+input:checked+.slider:before {
+  transform: translateX(18px);
+}
+
+.slider.round {
+  border-radius: 25px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* --- 4. Thêm lịch tưới mới (Add Schedule Form) --- */
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.time-input {
+  width: 200px;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Lặp lại */
+.repeat-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 20px 10px 0px 10px ;
+}
+
+.radio-group input[type="radio"] {
+  margin-right: 5px;
+}
+
+.radio-group label{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-weight: normal;
+  margin: auto ;
+  margin-left: 0px;
+}
+
+
+.type-repeat-option{
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+}
+.days-input {
+  width: 40px;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  margin: 0 5px;
+}
+
+.day-selector {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-light);
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.day-label {
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-right: 15px;
+  white-space: nowrap;
+}
+
+.day-button {
+  background-color: var(--card-bg);
+  color: var(--text-dark);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.day-button.selected {
+  background-color: var(--secondary-color);
+  color: white;
+  border-color: var(--secondary-color);
+}
+
+/* Lượng nước */
+/* --- 4. Thêm lịch tưới mới (Add Schedule Form) --- */
+/* ... (giữ lại các phần khác) */
+
+/* Lượng nước */
+.water-amount-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Định kiểu chung cho thanh trượt */
+.water-slider {
+  /* Reset style mặc định của trình duyệt */
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background: transparent;
+  /* Đặt nền là transparent để dùng gradient */
+  outline: none;
+  opacity: 1;
+  transition: opacity .2s;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+/* Kỹ thuật Fill-in-Track (Tô màu dựa trên giá trị) */
+/* Cần được tính toán động (sẽ hướng dẫn JS/React) hoặc dùng CSS gradient */
+.water-slider {
+  /* Giá trị 45% là ví dụ, sẽ được thay thế bằng JS */
+  --slider-progress: 45%;
+
+  /* Dùng Linear Gradient để mô phỏng màu nền đậm + nhạt */
+ 
+}
+
+/* Định kiểu cho Thumb (Con trỏ tròn) trong Chrome/Safari */
+.water-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  /* Màu trắng cho con trỏ */
+  border: 2px solid var(--primary-color);
+  /* Viền màu xanh lá cây đậm */
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  margin-top: -6px;
+  /* Căn chỉnh vị trí dọc */
+}
+
+/* Định kiểu cho Track (Đường ray) trong Firefox */
+.water-slider::-moz-range-track {
+  width: 100%;
+  height: 8px;
+  background: transparent;
+  /* Nền trong suốt để gradient bên trên hoạt động */
+  border-radius: 4px;
+  border: none;
+}
+
+/* Định kiểu cho Thumb (Con trỏ tròn) trong Firefox */
+.water-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid var(--primary-color);
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* ... (giữ lại .water-amount-value) */
+
+
+
+.water-amount-value {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-top: 15px;
+}
+
+/* Button Lưu */
+.save-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  float: right;
+  margin-top: 20px;
+}
+
+.save-button:hover {
+  background-color: #43A047;
+}
+
+/* FontAwesome cho Icon */
+/* Lưu ý: Để các icon hiển thị, bạn cần đảm bảo đã link thư viện FontAwesome vào dự án. */
+
+/* Responsive (Tùy chọn) */
+@media (max-width: 768px) {
+  .card-layout {
+    flex-direction: column;
+  }
+}

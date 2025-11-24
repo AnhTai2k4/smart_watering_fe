@@ -6,6 +6,7 @@ import ConfigPage from "../pages/ConfigPage/ConfigPage"
 import SignupPage from "../pages/SignupPage/SignupPage"
 import ForgetPage from "../pages/ForgetPage/ForgetPage"
 import DataDevicePage from "../pages/DataDevicePage/DataDevicePage"
+import ScheduleDevicePage from "../pages/ScheduleDevicePage/ScheduleDevicePage"
 
 interface RouteType {
     path: string,
@@ -58,8 +59,14 @@ const routes: RouteType[] = [
         showFooter: true
     },
     {
-        path: "/data_device_page/:id",
+        path: "/data_device_page",
         element: <DataDevicePage />,
+        showHeader: true,
+        showFooter: true
+    },
+    {
+        path: "/schedule_device_page",
+        element: <ScheduleDevicePage />,
         showHeader: true,
         showFooter: true
     },

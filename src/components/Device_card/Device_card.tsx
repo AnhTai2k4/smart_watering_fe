@@ -18,7 +18,7 @@ const Device_card = ({ deviceName, id }: deviceCardProps) => {
     }
 
     const handleNavigate = () =>{
-        navigate(`/data_device_page/${id}`)
+        navigate(`/data_device_page?id=${id}&device-name=${deviceName}`)
     }
 
     return (
