@@ -1,4 +1,4 @@
-import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import "./DataDevicePage.css";
 import { useEffect, useState } from "react";
 import ChartData from "../../components/ChartData/ChartData";
