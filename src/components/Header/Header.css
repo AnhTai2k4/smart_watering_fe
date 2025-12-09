@@ -1,11 +1,11 @@
 .header {
-    width: 100vw;
-    height: 60px;
+    width: 100%;
+    height: 80px;
     display: flex;
     justify-content: space-between;
-    /* padding: 12px 24px; */
+    padding: 0 16px;
     align-items: center;
-    background-color: #b2da8a;
+    background-color: #cdf9b5;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 
     & .navigate__container{
@@ -32,8 +32,8 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-left: 20px;
-    flex: 2;
+    margin-left: 8px;
+    flex: 1;
     cursor: pointer;
 
     & img{
@@ -51,13 +51,48 @@
     font-family: 'open sans', sans-serif;
 }
 
+.header-nav-center {
+    flex: 0 0 auto;
+    display: inline-flex;
+    gap: 60px;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-nav-item {
+    width: 44px;
+    height: 44px;
+    border-radius: 900px;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.12s ease, transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.header-nav-item__icon {
+    font-size: 28px;
+}
+
+.header-nav-item--active {
+    background: #a9f3a1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(2px);
+}
+
+.header-nav-item:not(.header-nav-item--active):hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
 .notiandvery {
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
     gap: 28px;
-    margin-right: 30px;
-    flex:2;
+    margin-right: 8px;
+    flex: 1;
     & img{
         width: 40px;
         height: 40px;

@@ -1,18 +1,23 @@
 import "./LoginPage.css";
 import { UserContext } from "../../contexts/UserContext/UserContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { login } from "../../services/UserService/UserService";
 import { useNavigate } from "react-router-dom";
 const LoginPage = () => {
   const {userName, setUserName, password, setPassword} = useContext(UserContext);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const handleSubmit = async () => {
     const res = await login(userName as string, password as string);
+    
     console.log(res);
+    
     localStorage.setItem("token",res.data.accessToken)
+    localStorage.setItem("username", userName)
+    
     console.log("token", localStorage.getItem("token"))
 
-    if(res!== null) navigate("/device_page");
+    if(res!== null) navigate("/home_page");
     else alert("Đăng nhập thất bại");
   
   }
@@ -40,12 +45,20 @@ const LoginPage = () => {
           <label htmlFor="" className="lable">
             Mật khẩu
           </label>
-          <input
-            type="password"
-            className="input__login"
-            placeholder="Nhập mật khẩu"
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <div className="password__wrapper">
+            <input
+              type={showPassword ? "text" : "password"}
+              className="input__login"
+              placeholder="Nhập mật khẩu"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <span 
+              className="password__toggle" 
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? "👁️" : "👁️‍🗨️"}
+            </span>
+          </div>
           <a href="/forget_page">Quên mật khẩu</a>
 
           <button className="btn__login" onClick={handleSubmit}>Đăng nhập</button>

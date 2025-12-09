@@ -7,6 +7,12 @@ import SignupPage from "../pages/SignupPage/SignupPage"
 import ForgetPage from "../pages/ForgetPage/ForgetPage"
 import DataDevicePage from "../pages/DataDevicePage/DataDevicePage"
 import ScheduleDevicePage from "../pages/ScheduleDevicePage/ScheduleDevicePage"
+import ScheduleGroupPage from "../pages/ScheduleGroupPage/ScheduleGroupPage"
+import DataGroupPage from "../pages/DataGroupPage/DataGroupPage"
+import HomePage from "../pages/HomePage/HomePage"
+import ChangePasswordPage from "../pages/ChangePasswordPage/ChangePasswordPage"
+import EmailVerificationPage from "../pages/EmailVerificationPage/EmailVerificationPage"
+
 
 interface RouteType {
     path: string,
@@ -21,6 +27,12 @@ const routes: RouteType[] = [
         element: <LoginPage />,
         showHeader: false,
         showFooter: false
+    },
+    {
+        path: "/home_page",
+        element: <HomePage />,
+        showHeader: true,
+        showFooter: true
     },
     {
         path: "/device_page",
@@ -56,7 +68,7 @@ const routes: RouteType[] = [
         path: "/config_page",
         element: <ConfigPage />,
         showHeader: true,
-        showFooter: true
+        showFooter: false
     },
     {
         path: "/data_device_page",
@@ -69,6 +81,30 @@ const routes: RouteType[] = [
         element: <ScheduleDevicePage />,
         showHeader: true,
         showFooter: true
+    },
+    {
+        path: "/schedule_group_page",
+        element: <ScheduleGroupPage />,
+        showHeader: true,
+        showFooter: true
+    },
+    {
+        path: "/data_group_page",
+        element: <DataGroupPage />,
+        showHeader: true,
+        showFooter: true
+    },
+    {
+        path: "/change_password_page",
+        element: <ChangePasswordPage />,
+        showHeader: true,
+        showFooter: false
+    },
+    {
+        path: "/email_verification_page",
+        element: <EmailVerificationPage />,
+        showHeader: true,
+        showFooter: false
     },
 ]
 

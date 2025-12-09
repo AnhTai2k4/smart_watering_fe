@@ -7,6 +7,9 @@ const SignupPage = () => {
   const { userName, setUserName, password, setPassword } =
     useContext(UserContext);
   const [rePassword, setRePassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showRePassword, setShowRePassword] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
@@ -16,7 +19,7 @@ const SignupPage = () => {
     }
 
     try {
-      const res = await signup(userName as string, password as string);
+      const res = await signup(userName as string, password as string, email as string);
 
       if (res.data.data !== null) navigate("/login_page");
     } catch {
@@ -50,21 +53,47 @@ const SignupPage = () => {
           <label htmlFor="" className="lable">
             Mật khẩu
           </label>
-          <input
-            type="password"
-            className="input__signup"
-            placeholder="Nhập mật khẩu"
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <div className="password__wrapper">
+            <input
+              type={showPassword ? "text" : "password"}
+              className="input__signup"
+              placeholder="Nhập mật khẩu"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <span 
+              className="password__toggle" 
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? "👁️" : "👁️‍🗨️"}
+            </span>
+          </div>
 
           <label htmlFor="" className="lable">
             Nhập lại mật khẩu
           </label>
+          <div className="password__wrapper">
+            <input
+              type={showRePassword ? "text" : "password"}
+              className="input__signup"
+              placeholder="Nhập mật khẩu"
+              onChange={(e) => setRePassword(e.target.value)}
+            />
+            <span 
+              className="password__toggle" 
+              onClick={() => setShowRePassword(!showRePassword)}
+            >
+              {showRePassword ? "👁️" : "👁️‍🗨️"}
+            </span>
+          </div>
+
+          <label htmlFor="" className="lable">
+            Email
+          </label>
           <input
-            type="password"
+            type="email"
             className="input__signup"
-            placeholder="Nhập mật khẩu"
-            onChange={(e) => setRePassword(e.target.value)}
+            placeholder="Nhập Email"
+            onChange={(e) => setEmail(e.target.value)}
           />
 
           <div className="btn__group">
