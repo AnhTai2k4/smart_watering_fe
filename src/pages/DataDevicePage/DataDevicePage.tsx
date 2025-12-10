@@ -16,7 +16,9 @@ const DataDevicePage = () => {
   const [sensorData, setSensorData] = useState({ "deviceId": "", temp: "", air: "", soil: "", "timestamp": "" });
   const [topicSensor, setTopicSensor] = useState("")
   const [topicWatering, setTopicWatering] = useState("")
+  const [deviceId, setDeviceId] = useState("")
   const [isWatering, setIsWatering] = useState(false)
+  const [isOnline, setIsOnline] = useState(false)
   const [historyWateringData, setHistoryWateringData] = useState([])
 
   const [historySensorData, setHistorySensorData] = useState([])
@@ -55,6 +57,7 @@ const DataDevicePage = () => {
       console.log("Device info:", result);
       setTopicSensor(result.data.topicSensor);
       setTopicWatering(result.data.topicWatering);
+      setDeviceId(result.data.deviceId);
       console.log(topicSensor);
     };
 
@@ -82,17 +85,12 @@ const DataDevicePage = () => {
     client.onConnect = () => {
       console.log("✅ Connected to WebSocket via SockJS");
 
-      // Lắng nghe dữ liệu cảm biến
-      client.subscribe("/user/devices/sensor", (message) => {
-        const data = JSON.parse(message.body);
-        console.log("📡 Sensor data:", data);
-        setSensorData(data)
-      });
-
       // Lắng nghe trạng thái online/offline
-      client.subscribe("/user/devices/status", (message) => {
+      client.subscribe(`/user/device/status/${deviceId}`, (message) => {
         const data = JSON.parse(message.body);
         console.log("🟢 Device status:", data);
+        if(data.status == "online") setIsOnline(true);
+        else setIsOnline(false);
       });
 
       // Lắng nghe trạng thái máy bơm

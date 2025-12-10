@@ -59,11 +59,11 @@ const LoginPage = () => {
               {showPassword ? "👁️" : "👁️‍🗨️"}
             </span>
           </div>
-          <a href="/forget_page">Quên mật khẩu</a>
+          <a style={{color: "#6DA544"}} href="/forget_page">Quên mật khẩu</a>
 
           <button className="btn__login" onClick={handleSubmit}>Đăng nhập</button>
           <p>
-            Bạn mới biết đến SmartSprout? <a href="/signup_page">Đăng ký</a>
+            Bạn mới biết đến SmartSprout? <a style={{color: "#6DA544"}} href="/signup_page">Đăng ký</a>
           </p>
         </div>
       </div>

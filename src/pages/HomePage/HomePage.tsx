@@ -25,14 +25,24 @@ const HomePage: React.FC = () => {
   const username = localStorage.getItem("username")
   const [listDevice, setListDevice] = useState<any[]>([]);
   const [listGroup, setListGroup] = useState<any[]>([]);
+  const [loadingDevice, setLoadingDevice] = useState<boolean>(true);
+  const [loadingGroup, setLoadingGroup] = useState<boolean>(true);
   const [activeTab, setActiveTab] = useState<"device" | "group">("device");
   console.log(username)
 
   useEffect(() => {
     const allDevice = async () => {
-      const res = await getAllDevice();
-      console.log("all device", res)
-      setListDevice(res.data)
+      try {
+        setLoadingDevice(true);
+        const res = await getAllDevice();
+        console.log("all device", res)
+        setListDevice(res.data || [])
+      } catch (error) {
+        console.error("Error fetching devices:", error)
+        setListDevice([])
+      } finally {
+        setLoadingDevice(false);
+      }
     }
 
     allDevice();
@@ -41,11 +51,15 @@ const HomePage: React.FC = () => {
   useEffect(() => {
     const allGroup = async () => {
       try {
+        setLoadingGroup(true);
         const res = await getAllGroup();
         console.log("all group", res)
         setListGroup(res.data || [])
       } catch (error) {
         console.error("Error fetching groups:", error)
+        setListGroup([])
+      } finally {
+        setLoadingGroup(false);
       }
     }
 
@@ -107,9 +121,9 @@ const HomePage: React.FC = () => {
         <div>
           <p className="home-hero__welcome">Xin chào,</p>
           <h1 className="home-hero__username">
-            {username ? username.toUpperCase() : "người dùng"}
+            {username ? username.toUpperCase() : "nguoi dung".toUpperCase()}
           </h1>
-          <p className="home-hero__welcome">Hệ thống tưới tự động của bạn đang hoạt động tốt</p>
+          {username ? <p className="home-hero__welcome">Hệ thống tưới tự động của bạn đang hoạt động tốt</p> : <p className="home-hero__welcome">Bạn cần đăng nhập để sử dụng hệ thống tưới cây</p>}
         </div>
         <button
           className="home-hero__primary-btn"
@@ -144,7 +158,12 @@ const HomePage: React.FC = () => {
 
         {activeTab === "device" ? (
           <div className="home-schedule-list">
-            {listDevice.filter(item => item.nextSchedule).length === 0 ? (
+            {loadingDevice ? (
+              <div className="home-schedule-loading">
+                <div className="home-schedule-loading__spinner"></div>
+                <p className="home-schedule-loading__text">Đang lấy danh sách lịch tưới...</p>
+              </div>
+            ) : listDevice.filter(item => item.nextSchedule).length === 0 ? (
               <div className="home-schedule-empty">
                 <div className="home-schedule-empty__icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -184,7 +203,12 @@ const HomePage: React.FC = () => {
           </div>
         ) : (
           <div className="home-schedule-list">
-            {listGroup.filter((item: any) => item.nextSchedule).length === 0 ? (
+            {loadingGroup ? (
+              <div className="home-schedule-loading">
+                <div className="home-schedule-loading__spinner"></div>
+                <p className="home-schedule-loading__text">Đang lấy danh sách lịch tưới...</p>
+              </div>
+            ) : listGroup.filter((item: any) => item.nextSchedule).length === 0 ? (
               <div className="home-schedule-empty">
                 <div className="home-schedule-empty__icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

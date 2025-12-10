@@ -12,6 +12,7 @@ import DataGroupPage from "../pages/DataGroupPage/DataGroupPage"
 import HomePage from "../pages/HomePage/HomePage"
 import ChangePasswordPage from "../pages/ChangePasswordPage/ChangePasswordPage"
 import EmailVerificationPage from "../pages/EmailVerificationPage/EmailVerificationPage"
+import IntroducePage from "../pages/IntroducePage/IntroducePage"
 
 
 interface RouteType {
@@ -105,6 +106,12 @@ const routes: RouteType[] = [
         element: <EmailVerificationPage />,
         showHeader: true,
         showFooter: false
+    },
+    {
+        path: "/introduce",
+        element: <IntroducePage />,
+        showHeader: true,
+        showFooter: true
     },
 ]
 

@@ -1,47 +1,121 @@
-.group__card{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 10rem;
-    height:18rem;
-    background-color: #7b5118 ;
-    gap:30px;
-    flex-wrap: wrap;
-    border-radius: 20px;
-    padding-right:10px;
-    
+/* CARD WRAPPER */
+.group__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    & .trash_icon{
-        margin-top: 10px;
-        display: flex;
-        align-self: flex-end;
-        width: 2.5rem;
-        height: 2.5rem;
+  width: 100%;
+  max-width: 180px;
+  height: auto;
 
-        & :hover{
-            cursor: pointer;
-        }
-        
-    }
+  padding: 16px 12px 20px;
+  gap: 16px;
 
-    & .group_icon{
-        
-        width: 80px;
-        height: 120px;
-        align-self:center;
-        justify-self: center;
-    }
+  background: linear-gradient(135deg, #7b5118 0%, #9d6b2a 100%);
+  border-radius: var(--radius-xl);
+  border: 2px solid rgba(255, 255, 255, 0.25);
 
-    & .device_name{
-        text-align: center;
-        height: 1.5rem;
-    }
+  box-shadow: var(--shadow-lg);
+  transition: all 0.25s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
 
-    & h3{
-        font-size: var(--h3-font-size);
-        line-height: var(--h3-line-height);
-        color: white;
-        align-self: center;
-        height:min-content;
-    }
+/* Hover glow */
+.group__card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Radial shine */
+.group__card::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  right: -40%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.25) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: 0.25s;
+}
+
+.group__card:hover::before {
+  opacity: 1;
+}
+
+/* DELETE BUTTON */
+.trash_icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.3);
+
+  transition: all 0.25s ease;
+  z-index: 3;
+}
+
+.trash_icon img {
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) invert(1);
+}
+
+.trash_icon:hover {
+  background: rgba(220, 38, 38, 0.9);
+  transform: scale(1.15);
+}
+
+/* GROUP ICON */
+.group_icon {
+  width: 80px;
+  height: auto;
+
+  display: flex;
+  justify-content: center;
+
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+  transition: 0.25s ease;
+  z-index: 2;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.group__card:hover .group_icon {
+  transform: scale(1.07) rotate(4deg);
+}
+
+.group_icon img {
+  width: 100%;
+}
+
+/* GROUP NAME */
+.group_name {
+  text-align: center;
+  margin-top: 8px;
+  z-index: 2;
+}
+
+.group_name h3 {
+  margin: 0;
+  font-size: var(--h3-font-size);
+  font-weight: 700;
+  color: #fff;
+
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  word-break: break-word;
 }

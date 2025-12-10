@@ -126,10 +126,33 @@
 .empty-message {
   grid-column: 1 / -1;
   text-align: center;
-  padding: 40px 20px;
-  font-size: 18px;
-  color: #6b7280;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.empty-message__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+  transition: opacity var(--transition-base);
+}
+
+.empty-message__icon svg {
+  width: 80px;
+  height: 80px;
+  color: var(--text-tertiary);
+}
+
+.empty-message__text {
+  font-size: var(--h3-font-size);
+  color: var(--text-tertiary);
   font-weight: 500;
+  margin: 0;
 }
 
 .loading-message {

@@ -1,21 +1,21 @@
 .signup__section {
-  background-color: #b2da8a;
+  background: #B2DA8A;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px 20px;
-  font-family: 'open sans', sans-serif;
+  padding: 40px 16px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .signup__container {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 32px;
   align-items: center;
   width: 100%;
-  max-width: 460px;
+  max-width: 480px;
 }
 
 .signup__logo {
@@ -25,42 +25,43 @@
 }
 
 .signup__logo h1 {
-  font-size: 3.5rem;
-  color: #3a6f2a;
+  font-size: 2rem;
+  color: #1f2937;
   font-weight: 700;
   margin: 0;
-  letter-spacing: -0.5px;
 }
 
 .signup__img {
-  width: 80px;
-  height: 80px;
+  width: 48px;
+  height: 48px;
 }
 
 .signup__form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  background-color: white;
+  gap: 24px;
+  background: #ffffff;
   width: 100%;
-  padding: 36px 28px;
-  border-radius: 32px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  padding: 32px 28px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  border: 1px solid #e5e7eb;
 }
 
 .signup__form .h2__title {
   text-align: center;
-  font-size: 28px;
+  font-size: 2rem;
   font-weight: 700;
-  color: #3a6f2a;
+  color: #111827;
   margin: 0 0 8px 0;
 }
 
 .signup__form .lable {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   color: #374151;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+  display: block;
 }
 
 .password__wrapper {
@@ -71,36 +72,52 @@
 
 .signup__form .input__signup {
   height: 48px;
-  border-radius: 14px;
-  border: 2px solid #b2da8a;
-  padding: 0 16px;
-  font-size: 16px;
-  transition: border-color 0.2s;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  padding: 0 14px;
+  font-size: 15px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
   box-sizing: border-box;
   width: 100%;
+  background: #ffffff;
+  color: #111827;
+  font-weight: 500;
 }
 
 .password__wrapper .input__signup {
-  padding: 0 48px 0 16px;
+  padding: 0 44px 0 14px;
 }
 
 .signup__form .input__signup:focus {
   outline: none;
-  border-color: #6DA544;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.signup__form .input__signup::placeholder {
+  color: #9ca3af;
 }
 
 .password__toggle {
   position: absolute;
-  right: 14px;
+  right: 12px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 18px;
   user-select: none;
   opacity: 0.6;
-  transition: opacity 0.2s;
+  transition: opacity 0.15s ease, color 0.15s ease;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
 }
 
 .password__toggle:hover {
   opacity: 1;
+  color: #3b82f6;
 }
 
 .signup__form .btn__group {
@@ -114,45 +131,50 @@
 .signup__form .btn__login,
 .signup__form .btn__signup {
   height: 48px;
-  border-radius: 12px;
+  border-radius: 10px;
   border: none;
-  background-color: #6DA544;
-  color: white;
+  background: #6DA544;
+  color: #ffffff;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   flex: 1;
-  transition: background-color 0.2s;
+  transition: background-color 0.15s ease, transform 0.1s ease;
 }
 
 .signup__form .btn__login:hover,
 .signup__form .btn__signup:hover {
-  background-color: #2e5520;
+  background: #6DA544;
+}
+
+.signup__form .btn__login:active,
+.signup__form .btn__signup:active {
+  transform: translateY(0);
 }
 
 .signup__form p {
   font-size: 14px;
-  margin-top: 16px;
-  color: rgba(0, 0, 0, 0.5);
+  margin-top: 20px;
+  color: #4b5563;
   text-align: center;
 }
 
 .signup__form a {
   text-decoration: none;
-  color: #3a6f2a;
+  color: #2563eb;
   font-size: 14px;
-  font-weight: 500;
-  transition: color 0.2s;
+  font-weight: 600;
+  transition: color 0.15s ease;
 }
 
 .signup__form a:hover {
-  text-decoration: underline;
-  color: #2e5520;
+  color: #1d4ed8;
 }
 
 @media (max-width: 768px) {
   .signup__container {
     max-width: 90%;
+    gap: 28px;
   }
 
   .signup__logo h1 {
@@ -165,7 +187,11 @@
   }
 
   .signup__form {
-    padding: 32px 24px;
-    border-radius: 28px;
+    padding: 28px 22px;
+    border-radius: 10px;
+  }
+
+  .signup__form .h2__title {
+    font-size: 1.75rem;
   }
 }

@@ -2,6 +2,7 @@ import "./GroupPage.css";
 import { useEffect, useState } from "react";
 import Group_Card from "../../components/Group_Card/Group_Card";
 import CreateGroup from "../../components/CreateGroup/CreateGroup";
+import CreateDevice from "../../components/CreateDevice/CreateDevice";
 
 const GroupPage = () => {
   const [groups, setGroups] = useState([]);
@@ -120,7 +121,14 @@ const GroupPage = () => {
             {loading ? (
               <div className="loading-message">Đang lấy danh sách nhóm...</div>
             ) : filteredGroups.length === 0 ? (
-              <div className="empty-message">Không có nhóm</div>
+              <div className="empty-message">
+                <div className="empty-message__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="80px" viewBox="0 -960 960 960" width="80px" fill="#9ca3af">
+                    <path d="M320-240q-33 0-56.5-23.5T240-320v-480q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H320Zm0-80h480v-320H520v-160H320v480ZM160-80q-33 0-56.5-23.5T80-160v-560h80v560h560v80H160Zm160-720v480-480Z"/>
+                  </svg>
+                </div>
+                <p className="empty-message__text">Không có nhóm</p>
+              </div>
             ) : (
               filteredGroups.map((group: any, id: number) => (
                 <Group_Card key={id} groupName={group.name} id={group.id} />
@@ -153,12 +161,27 @@ const GroupPage = () => {
                   Thêm nhóm
                 </a>
               </li>
+
+              <hr/>
+              
+              <li>
+                <a
+                  className="dropdown-item"
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#deviceModal"
+                >
+                  Thêm thiết bị
+                </a>
+              </li>
+
               
             </ul>
           </div>
         </div>
       </div>
       <CreateGroup />
+      <CreateDevice/>
     </div>
   );
 };

@@ -8,33 +8,35 @@ interface Props {
 }
 
 const Group_card = ({ groupName, id }: Props) => {
+  const navigate = useNavigate();
 
-  const navigate = useNavigate()
-  const handleNavigate = () =>{
-    navigate(`/data_group_page?id=${id}&group-name=${groupName}`)
+  const handleNavigate = () => {
+    navigate(`/data_group_page?id=${id}&group-name=${groupName}`);
+  };
 
-  }
-  const handleDelete = async ()=>{
-    const res = await deleteGroup(id)
-    if (res) console.log("xoa thanh cong nhom", id)
-  
-  }
+  const handleDelete = async (e: React.MouseEvent) => {
+    e.stopPropagation(); // tránh click vào card
+    const res = await deleteGroup(id);
+    if (res) console.log("Xóa thành công nhóm", id);
+  };
+
   return (
-    <div className="group__card" >
-            <div className="trash_icon" onClick={handleDelete}>
-                <img src="./Trash.png" alt="Xoa device" />
-            </div>
+    <div className="group__card" onClick={handleNavigate}>
+      {/* DELETE ICON */}
+      <div className="trash_icon" onClick={handleDelete}>
+        <img src="./Trash.png" alt="Xóa group" />
+      </div>
 
-            <div className="group_icon" onClick={handleNavigate}>
-                <img src="./Tree_white.png" alt="Cay" />
-            </div>
+      {/* ICON GROUP */}
+      <div className="group_icon">
+        <img src="./Tree_white.png" alt="Group" />
+      </div>
 
-            <div className="device_name" onClick={handleNavigate}>
-                <h3>{groupName}</h3>
-
-            </div>
-
-        </div>
+      {/* GROUP NAME */}
+      <div className="group_name">
+        <h3>{groupName}</h3>
+      </div>
+    </div>
   );
 };
 

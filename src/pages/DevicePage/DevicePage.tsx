@@ -4,6 +4,7 @@ import "./DevicePage.css";
 import { useDeviceContext } from "../../contexts/DeviceContext/DeviceContext";
 import { getAllDevice } from "../../services/DeviceService/DeviceService";
 import { useEffect, useState } from "react";
+import GroupPage from "../GroupPage/GroupPage";
 
 
 const DevicePage = () => {
@@ -123,7 +124,14 @@ const DevicePage = () => {
             {loading ? (
               <div className="loading-message">Đang lấy danh sách thiết bị...</div>
             ) : filteredDevices.length === 0 ? (
-              <div className="empty-message">Không có thiết bị</div>
+              <div className="empty-message">
+                <div className="empty-message__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="80px" viewBox="0 -960 960 960" width="80px" fill="#9ca3af">
+                    <path d="M480-120q-88 0-168.5-33T169-249l57-57q51 51 117 78.5T481-200q72 0 137.5-27T735-305l56 56q-63 63-143 96t-168 33Zm0-160q-56 0-107-21t-91-61l56-56q29 29 65.5 43.5T480-360q40 0 76.5-14.5T622-418l56 56q-40 40-91 61t-107 21ZM200-760v40h560v-40H200Zm124 120 12 40h288l12-40H324Zm12 120q-26 0-47-15.5T260-576l-20-64h-40q-33 0-56.5-23.5T120-720v-120h720v120q0 33-23.5 56.5T760-640h-40l-26 68q-9 23-29 37.5T620-520H336ZM200-760v40-40Z"/>
+                  </svg>
+                </div>
+                <p className="empty-message__text">Không có thiết bị</p>
+              </div>
             ) : (
               filteredDevices.map((device, id) => {
                 return (<Device_card key={id} deviceName={device.name} id={device.id} />)
@@ -158,7 +166,10 @@ const DevicePage = () => {
               </li>
               <hr />
               <li>
-                <a className="dropdown-item" href="#">
+                <a className="dropdown-item"
+                  href=""
+                  data-bs-toggle="modal"
+                  data-bs-target="#groupModal">
                   Thêm nhóm
                 </a>
               </li>
@@ -168,6 +179,7 @@ const DevicePage = () => {
 
         {/* ------------------Modal ---------------------*/}
         <CreateDevice />
+        <GroupPage />
       </div>
     </div>
   );

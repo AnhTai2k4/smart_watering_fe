@@ -45,18 +45,12 @@ export const verifyOTP = async (email: string, code: string) => {
 }
 
 export const changePassword = async (email: string, newPassword: string, confirmNewPassword: string, code: string) => {
-    const token = localStorage.getItem("token")
     const res = await axios.post(`${import.meta.env.VITE_BE_URL}/auth/change-password`,
         {
             email,
             newPassword,
             confirmNewPassword,
             code
-        },
-        {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
         }
     )
     return res.data;

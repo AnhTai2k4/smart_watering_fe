@@ -1,46 +1,195 @@
-.device__card{
-    display: flex;
-    flex-direction: column;
-    width: 10rem;
-    height:17rem;
-    background-color: #98D8AA ;
-    gap:30px;
-    flex-wrap: wrap;
-    border-radius: 20px;
-    padding-right:10px;
-    
+/* CARD WRAPPER */
+.device__card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  padding: 16px 12px 20px;
+  gap: 16px;
 
-    & .trash_icon{
-        margin-top: 10px;
-        display: flex;
-        align-self: flex-end;
-        width: 2.5rem;
-        height: 2.5rem;
+  background: linear-gradient(135deg, #98D8AA 0%, #7bc98a 100%);
+  border-radius: var(--radius-xl);
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  box-shadow: var(--shadow-lg);
 
-        & :hover{
-            cursor: pointer;
-        }
-        
-    }
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s;
+}
 
-    & .tree_icon{
-        
-        width: 80px;
-        height: 120px;
-        align-self:center;
-        justify-self: center;
-    }
+/* Hover effect */
+.device__card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: var(--shadow-xl);
+}
 
-    & .device_name{
-        text-align: center;
-        height: 1.5rem;
-    }
+/* Beautiful radial shine (hover) */
+.device__card::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -40%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
 
-    & h3{
-        font-size: var(--h3-font-size);
-        line-height: var(--h3-line-height);
-        color: white;
-        align-self: center;
-        height:min-content;
-    }
+.device__card:hover::before {
+  opacity: 1;
+}
+
+/* DELETE BUTTON */
+.trash_icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.25s;
+
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+}
+
+.trash_icon img {
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) invert(1);
+}
+
+.trash_icon:hover {
+  background: rgba(220, 38, 38, 0.9);
+  transform: scale(1.15);
+}
+
+/* STATUS BAR (wifi + đang tưới) */
+.device__status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -2px;
+  padding: 0 4px;
+}
+
+.wifi_icon {
+  width: 26px;
+  height: 26px;
+  transition: 0.2s;
+}
+
+/* Đang tưới badge */
+.watering_status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 4px 10px;
+  border-radius: 12px;
+
+  background: rgba(0, 140, 255, 0.35);
+  backdrop-filter: blur(3px);
+
+  color: #fff;
+  font-weight: 600;
+  font-size: 12px;
+
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.watering_status img {
+  width: 18px;
+}
+
+/* SENSOR BOX */
+.sensor_box {
+  width: 100%;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(5px);
+  border-radius: 14px;
+  margin-top: -5px;
+}
+
+.sensor_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.sensor_row:last-child {
+  margin-bottom: 0;
+}
+
+.sensor_icon {
+  width: 18px;
+  margin-right: 8px;
+}
+
+.sensor_row span {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.sensor_value {
+  font-weight: 700;
+  color: #fff;
+  min-width: 40px;
+  text-align: right;
+}
+
+/* TREE IMAGE */
+.tree_icon {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 80px;
+  height: auto;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+  transition: transform 0.25s ease;
+}
+
+.device__card:hover .tree_icon {
+  transform: scale(1.07) rotate(4deg);
+}
+
+.tree_icon img {
+  width: 100%;
+}
+
+/* DEVICE NAME */
+.device_name {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.device_name h3 {
+  margin: 0;
+  font-size: var(--h3-font-size);
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.25);
+}
+
+.device_name p {
+  color: #fff;
+  opacity: 0.85;
+  margin-top: 4px;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0px); }
 }
