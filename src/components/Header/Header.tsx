@@ -81,7 +81,7 @@ function Header() {
             onClick={() => navigate("/config_page")}
           /> :
           <p style={{color:"#3a6f2a", fontSize:"20px"}}>
-            <a href="/login_page">Đăng nhập</a> / <a href="/signup_page">Đăng ký</a>
+            <a href="/login_page" style={{color:"#3a6f2a", fontSize:"20px"}}>Đăng nhập</a>/<a style={{color:"#3a6f2a", fontSize:"20px"}} href="/signup_page">Đăng ký</a>
           </p>}
       </nav>
     </header>

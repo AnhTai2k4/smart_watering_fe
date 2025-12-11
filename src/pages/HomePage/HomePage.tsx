@@ -120,8 +120,8 @@ const HomePage: React.FC = () => {
       <section className="home-hero">
         <div>
           <p className="home-hero__welcome">Xin chào,</p>
-          <h1 className="home-hero__username">
-            {username ? username.toUpperCase() : "nguoi dung".toUpperCase()}
+          <h1 className="home-hero__username" style={{fontFamily:"serif"}}>
+            {username ? username.toUpperCase() : "Người dùng mới".toUpperCase()}
           </h1>
           {username ? <p className="home-hero__welcome">Hệ thống tưới tự động của bạn đang hoạt động tốt</p> : <p className="home-hero__welcome">Bạn cần đăng nhập để sử dụng hệ thống tưới cây</p>}
         </div>

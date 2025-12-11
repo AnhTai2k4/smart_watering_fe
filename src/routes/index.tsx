@@ -25,9 +25,9 @@ interface RouteType {
 const routes: RouteType[] = [
     {
         path: "/",
-        element: <LoginPage />,
-        showHeader: false,
-        showFooter: false
+        element: <HomePage />,
+        showHeader: true,
+        showFooter: true
     },
     {
         path: "/home_page",

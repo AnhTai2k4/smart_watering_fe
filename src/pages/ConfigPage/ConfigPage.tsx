@@ -12,7 +12,7 @@ const ConfigPage = () => {
       <div className="account-card">
         <div className="account-header">
           <div className="account-avatar">
-            <span>{userName.charAt(0).toUpperCase()}</span>
+            <img src="chicken.png" alt="" style={{width:"70px", height:"70px"}} />
           </div>
           <div className="account-info">
             <h2>{userName}</h2>

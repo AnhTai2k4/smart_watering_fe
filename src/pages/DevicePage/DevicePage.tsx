@@ -5,6 +5,7 @@ import { useDeviceContext } from "../../contexts/DeviceContext/DeviceContext";
 import { getAllDevice } from "../../services/DeviceService/DeviceService";
 import { useEffect, useState } from "react";
 import GroupPage from "../GroupPage/GroupPage";
+import CreateGroup from "../../components/CreateGroup/CreateGroup";
 
 
 const DevicePage = () => {
@@ -179,7 +180,7 @@ const DevicePage = () => {
 
         {/* ------------------Modal ---------------------*/}
         <CreateDevice />
-        <GroupPage />
+        <CreateGroup />
       </div>
     </div>
   );
