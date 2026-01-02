@@ -69,7 +69,7 @@ const ScheduleItem: React.FC<ScheduleItemProps> = ({
         <button className="delete-button" >
           <i className="fas fa-trash-alt"></i>{" "}
           {/* Sử dụng FontAwesome icon cho thùng rác */}
-          <img src="./Trash_Schedule.png" alt="" onClick={()=>{handleDeleteSchedule(deviceId, scheduleId)}}/>
+          <img src="/Trash_Schedule.png" alt="" onClick={()=>{handleDeleteSchedule(deviceId, scheduleId)}}/>
         </button>
       </div>
     </div>

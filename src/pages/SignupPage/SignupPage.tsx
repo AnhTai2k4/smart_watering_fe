@@ -34,7 +34,7 @@ const SignupPage = () => {
     <div className="signup__section">
       <div className="signup__container">
         <div className="signup__logo">
-          <img src="./tree_header.png" alt="anh ne" className="signup__img" />
+          <img src="/tree_header.png" alt="anh ne" className="signup__img" />
           <h1>Smart Watering</h1>
         </div>
         <div className="signup__form">

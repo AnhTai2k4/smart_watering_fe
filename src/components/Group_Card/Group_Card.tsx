@@ -24,12 +24,12 @@ const Group_card = ({ groupName, id }: Props) => {
     <div className="group__card" onClick={handleNavigate}>
       {/* DELETE ICON */}
       <div className="trash_icon" onClick={handleDelete}>
-        <img src="./Trash.png" alt="Xóa group" />
+        <img src="/Trash.png" alt="Xóa group" />
       </div>
 
       {/* ICON GROUP */}
       <div className="group_icon">
-        <img src="./tree.png" alt="Group" />
+        <img src="/tree.png" alt="Group" />
       </div>
 
       {/* GROUP NAME */}

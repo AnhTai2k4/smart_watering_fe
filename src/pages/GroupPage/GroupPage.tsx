@@ -143,7 +143,7 @@ const GroupPage = () => {
               aria-expanded="false"
             >
               <img
-                src="./add_button.png"
+                src="/add_button.png"
                 alt="add_button"
                 className="add__icon"
               />

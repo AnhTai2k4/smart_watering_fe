@@ -15,7 +15,7 @@ interface NewsItem {
 }
 
 const NEWS_API =
-  "https://w-api.baomoi.com/api/v1/content/get/list-by-custom?listType=tag&keyword=C%C3%A2y%20tr%E1%BB%93ng&page=4&ctime=1763528630&version=0.7.53&sig=119944343615326522a980f8beb359663fd08f0cb0c973abbacaa86764d41e5c&apiKey=kI44ARvPwaqL7v0KuDSM0rGORtdY1nnw";
+  "/api/baomoi/content/get/list-by-custom?listType=tag&keyword=C%C3%A2y%20tr%E1%BB%93ng&page=4&ctime=1763528630&version=0.7.53&sig=119944343615326522a980f8beb359663fd08f0cb0c973abbacaa86764d41e5c&apiKey=kI44ARvPwaqL7v0KuDSM0rGORtdY1nnw";
 
 const HomePage: React.FC = () => {
   const navigate = useNavigate();

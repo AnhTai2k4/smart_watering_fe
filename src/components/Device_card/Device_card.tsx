@@ -134,20 +134,20 @@ const Device_card = ({ deviceName, id }: deviceCardProps) => {
           handleDelete();
         }}
       >
-        <img src="./Trash.png" alt="Xóa" />
+        <img src="/Trash.png" alt="Xóa" />
       </div>
 
       {/* STATUS BAR */}
       <div className="device__status">
         <img
-          src={isOnline ? "./wifi_on.png" : "./wifi-off.png"}
+          src={isOnline ? "/wifi_on.png" : "/wifi-off.png"}
           className="wifi_icon"
           alt="wifi"
         />
 
         {isWatering && (
           <div className="watering_status">
-            {/* <img src="./water_icon.png" /> */}
+            {/* <img src="/water_icon.png" /> */}
             <span>Đang tưới</span>
           </div>
         )}
@@ -155,7 +155,7 @@ const Device_card = ({ deviceName, id }: deviceCardProps) => {
 
       {/* TREE ICON */}
       <div className="tree_icon">
-        <img src="./tree.png" alt="tree" />
+        <img src="/tree.png" alt="tree" />
       </div>
 
       {/* SENSOR VALUES */}
