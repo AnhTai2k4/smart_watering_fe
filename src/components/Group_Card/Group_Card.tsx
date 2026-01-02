@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { deleteGroup } from "../../services/GroupService/GroupService";
-import "./Group_card.css";
+import "./Group_Card.css";
 
 interface Props {
   groupName: string;
