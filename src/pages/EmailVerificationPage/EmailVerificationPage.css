@@ -28,13 +28,13 @@
 }
 
 .back-button:hover {
-  background: #f3f4f6;
+  background: #dcfce7;
 }
 
 .page-title {
   font-size: 24px;
   font-weight: 700;
-  color: #5baa3b;
+  color: #166534;
   margin: 0;
 }
 
@@ -61,11 +61,11 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: #dbeafe;
+  background: linear-gradient(135deg, #dcfce7 0%, #ccf0ff 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-}
+}}
 
 .verification-shield {
   position: absolute;
@@ -73,7 +73,7 @@
   right: 0;
   width: 36px;
   height: 36px;
-  background: #2563eb;
+  background: #16a34a;
   border-radius: 50%;
   display: flex;
   align-items: center;

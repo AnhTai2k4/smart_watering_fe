@@ -9,13 +9,14 @@
   align-items: center;
   justify-content: space-between;
   padding: 24px 28px;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 2px solid #84cc16;
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
 }
 
 .create-group-title {
   font-size: 24px;
   font-weight: 700;
-  color: #1f2937;
+  color: #166534;
   margin: 0;
 }
 
@@ -32,7 +33,7 @@
 }
 
 .create-group-close:hover {
-  background: #f3f4f6;
+  background: #dcfce7;
 }
 
 .create-group-body {
@@ -72,8 +73,8 @@
 
 .create-group-input:focus {
   outline: none;
-  border-color: #5baa3b;
-}
+  border-color: #84cc16;
+}}
 
 .create-group-device-section {
   display: flex;
@@ -105,8 +106,8 @@
   width: 18px;
   height: 18px;
   cursor: pointer;
-  accent-color: #5baa3b;
-}
+  accent-color: #84cc16;
+}}
 
 .create-group-counter {
   font-size: 14px;
@@ -142,8 +143,8 @@
 
 .create-group-device-item--selected {
   background: #f0fdf4;
-  border-color: #5baa3b;
-}
+  border-color: #84cc16;
+}}
 
 .create-group-device-info {
   flex: 1;

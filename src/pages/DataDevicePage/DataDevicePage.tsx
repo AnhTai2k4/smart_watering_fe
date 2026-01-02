@@ -31,8 +31,8 @@ const DataDevicePage = () => {
   //Start/stop pump water
   const handlePump = async (action: String) => {
     // Gửi lệnh bơm nước tới server qua WebSocket hoặc API
-    console.log(`🚰 Pumping ${water} s`);
-    const result = await pumpWater(id, water, action);
+    console.log(`🚰 Pumping ${water} phút`);
+    const result = await pumpWater(id, water*60, action);
     if (result) setIsWatering(action === "START" ? true : false);
     console.log("Pump water result:", result);
   }
@@ -162,11 +162,11 @@ const DataDevicePage = () => {
                   } as React.CSSProperties
                 }
               />
-              <h3>{water}s</h3>
+              <h3>{water} phút</h3>
               <div className="pump__button">
                 {/*----------------Nút bơm nước và dừng bơm-------------------*/}
                 {isWatering ?
-                  <button style={{ backgroundColor: "red" }} onClick={() => handlePump("STOP")}>Dừng bơm</button>
+                  <button style={{ background: "#fd4646ff", color: "white" }} onClick={() => handlePump("STOP")}>Dừng bơm</button>
                   :
 
                   <button onClick={() => handlePump("START")}>Bơm ngay </button>
@@ -185,9 +185,9 @@ const DataDevicePage = () => {
             <table className="my-table">
               <thead>
                 <tr>
-                  <th>Thời điểm</th>
-                  <th>Thời gian bơm</th>
-                  <th>Vị trí</th>
+                  <th style={{ color: "var(--primary-green)" }}>Thời điểm</th>
+                  <th style={{ color: "var(--primary-green)" }}>Thời gian bơm</th>
+                  <th style={{ color: "var(--primary-green)" }}>Vị trí</th>
                 </tr>
               </thead>
 
@@ -196,7 +196,7 @@ const DataDevicePage = () => {
                   return (
                     <tr key={index}>
                       <td>{new Date(data.startTime).toLocaleString()}</td>
-                      <td>{data.duration} s</td>
+                      <td>{(data.duration / 60).toFixed(1)} phút</td>
                       <td>Thiết bị</td>
                     </tr>
                   )

@@ -13,6 +13,7 @@ import HomePage from "../pages/HomePage/HomePage"
 import ChangePasswordPage from "../pages/ChangePasswordPage/ChangePasswordPage"
 import EmailVerificationPage from "../pages/EmailVerificationPage/EmailVerificationPage"
 import IntroducePage from "../pages/IntroducePage/IntroducePage"
+import ConfigWifi from "../pages/ConfigWifi/ConfigWifi"
 
 
 interface RouteType {
@@ -69,6 +70,19 @@ const routes: RouteType[] = [
         path: "/config_page",
         element: <ConfigPage />,
         showHeader: true,
+        showFooter: false
+    },
+    {
+        path: "/config_wifi/:status",
+        element: <ConfigWifi/>,
+        showHeader: false,
+        showFooter: false
+    },
+    
+    {
+        path: "/config_wifi",
+        element: <ConfigWifi />,
+        showHeader: false,
         showFooter: false
     },
     {

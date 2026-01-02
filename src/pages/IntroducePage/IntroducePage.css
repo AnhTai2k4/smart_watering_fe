@@ -11,7 +11,7 @@
   width: 100%;
   min-height: 400px;
   background:
-    linear-gradient(135deg, rgba(58, 111, 42, 0.55) 0%, rgba(91, 170, 59, 0.48) 100%),
+    linear-gradient(135deg, rgba(132, 204, 22, 0.55) 0%, rgba(22, 163, 74, 0.48) 100%),
     url("/introduce-hero.jpg");
   background-size: contain;
   background-position: center center;
@@ -90,7 +90,7 @@
 .introduce-story__title-underline {
   width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, var(--primary-green-light) 0%, var(--primary-green) 100%);
+  background: linear-gradient(90deg, #84cc16 0%, #16a34a 100%);
   border-radius: var(--radius-full);
 }
 
@@ -116,7 +116,7 @@
 /* Statistics Section */
 .introduce-stats {
   width: 100%;
-  background: linear-gradient(135deg, var(--accent-green-lighter) 0%, #f0f5ed 100%);
+  background: linear-gradient(135deg, #dcfce7 0%, #ecfccb 100%);
   padding: 60px 24px;
 }
 

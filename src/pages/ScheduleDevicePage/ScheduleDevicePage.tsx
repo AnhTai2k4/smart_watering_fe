@@ -53,20 +53,20 @@ const ScheduleItem: React.FC<ScheduleItemProps> = ({
       <div className="time">{startTime}</div>
       {repeatType == "DAYS" ?
         <div className="frequency-amount">
-          {daysOfWeek.join(", ")} | {`${duration} s`}
+          {daysOfWeek.join(", ")} | {`${(Number(duration)/60).toFixed(1)} phút`}
         </div>
         :
         <div className="frequency-amount">
-          {repeatType == "ONE_TIME" ? "Một lần" : "Mỗi ngày"} | {`${duration} s`}
+          {repeatType == "ONE_TIME" ? "Một lần" : "Mỗi ngày"} | {`${(Number(duration)/60).toFixed(1)} phút`}
         </div>
       }
 
       <div className="controls">
-        <label className="switch">
-          <input type="checkbox" defaultChecked={status} onChange={(e) => { handleTurnSchedule(deviceId, scheduleId,  e.target.checked) }} />
-          <span className="slider round"></span>
+        <label className="switch" >
+          <input   type="checkbox" defaultChecked={status} onChange={(e) => { handleTurnSchedule(deviceId, scheduleId,  e.target.checked) }} />
+          <span className="slider round" ></span>
         </label>
-        <button className="delete-button">
+        <button className="delete-button" >
           <i className="fas fa-trash-alt"></i>{" "}
           {/* Sử dụng FontAwesome icon cho thùng rác */}
           <img src="./Trash_Schedule.png" alt="" onClick={()=>{handleDeleteSchedule(deviceId, scheduleId)}}/>
@@ -152,7 +152,7 @@ const ScheduleDevicePage: React.FC = () => {
           <div className="card-layout">
             {/* Card 1: Lịch tưới cây */}
             <div className="card schedule-card">
-              <h3 className="card-title">
+              <h3 className="card-title" style={{fontFamily:'Open Sans', color:"#166534"}}>
                 <i className="far fa-clock"></i> Lịch tưới cây
               </h3>
               {initialSchedules.map((schedule) => (
@@ -168,18 +168,18 @@ const ScheduleDevicePage: React.FC = () => {
 
               {/* Form */}
               <div className="form-group">
-                <label>Thời gian</label>
+                <label style={{color:"#166534"}}>Thời gian</label>
                 <input type="time" className="time-input" onChange={(e) => { setStartTime(e.target.value) }} />
               </div>
 
-              <div className="form-group">
-                <label>Lặp lại</label>
+              <div className="form-group" >
+                <label  style={{color:"#166534"}}>Lặp lại</label>
                 <div className="repeat-options">
                   <div className="radio-group">
 
                     <div className="type-repeat-option">
                       <input type="radio" id="daily" name="repeat" onClick={() => { setRepeatType("ONE_TIME") }} />
-                      <label htmlFor="daily">Bơm 1 lần</label>
+                      <label htmlFor="daily"  style={{color:"#166534"}}>Bơm 1 lần</label>
                     </div>
 
                     <div className="type-repeat-option">
@@ -190,7 +190,7 @@ const ScheduleDevicePage: React.FC = () => {
                         onClick={() => { setRepeatType("EVERYDAY") }}
 
                       />
-                      <label htmlFor="every">Hàng ngày</label>
+                      <label htmlFor="every"  style={{color:"#166534"}}>Hàng ngày</label>
                     </div>
 
                   </div>
@@ -199,11 +199,11 @@ const ScheduleDevicePage: React.FC = () => {
 
                     <div className="type-repeat-option">
                       <input type="radio" id="daily" name="repeat" onClick={() => { setRepeatType("DAYS") }} />
-                      <label htmlFor="daily">Bơm nhiều lần</label>
+                      <label htmlFor="daily"  style={{color:"#166534"}}>Bơm nhiều lần</label>
                     </div>
                     <div className="day-selector">
 
-                      <br />
+                     
                       {listDays.map((day) => (
                         <button
                           key={day}
@@ -223,7 +223,7 @@ const ScheduleDevicePage: React.FC = () => {
               </div>
 
               <div className="form-group water-amount-group">
-                <label>Thời gian bơm:</label>
+                <label  style={{color:"#166534"}}>Thời gian bơm:</label>
                 <input
                   type="range"
                   min={MIN_DURATION} // Dùng biến MIN_DURATION
@@ -239,10 +239,10 @@ const ScheduleDevicePage: React.FC = () => {
                     } as React.CSSProperties
                   }
                 />
-                <span className="water-amount-value">{`${duration} s`}</span>
+                <span className="water-amount-value"  style={{color:"#166534"}}>{`${duration} phút`}</span>
               </div>
 
-              <button className="save-button" onClick={() => handleCreateSchedule(startTime, repeatType, duration, daysOfWeek)}>Lưu lịch tưới</button>
+              <button className="save-button" onClick={() => handleCreateSchedule(startTime, repeatType, duration*60, daysOfWeek)}>Lưu lịch tưới</button>
             </div>
           </div>
         </div>

@@ -139,7 +139,7 @@ const ScheduleGroupPage: React.FC = () => {
                     } as React.CSSProperties
                   }
                 />
-                <h3>{water}s</h3>
+                <h3>{water}p</h3>
               </div>
 
               <div className="pump-actions">

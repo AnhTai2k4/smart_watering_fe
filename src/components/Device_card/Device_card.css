@@ -8,10 +8,10 @@
   padding: 16px 12px 20px;
   gap: 16px;
 
-  background: linear-gradient(135deg, #98D8AA 0%, #7bc98a 100%);
+  background: linear-gradient(135deg, rgb(149 221 39) 0%, rgb(142, 187, 79) 100%);
   border-radius: var(--radius-xl);
   border: 2px solid rgba(255, 255, 255, 0.25);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 8px 24px rgba(132, 204, 22, 0.25);
 
   cursor: pointer;
   position: relative;
@@ -22,7 +22,7 @@
 /* Hover effect */
 .device__card:hover {
   transform: translateY(-5px) scale(1.02);
-  box-shadow: var(--shadow-xl);
+  box-shadow: 0 12px 32px rgba(132, 204, 22, 0.35);
 }
 
 /* Beautiful radial shine (hover) */
@@ -91,15 +91,17 @@
 .watering_status {
   display: flex;
   align-items: center;
+  margin-right:35px;
+  margin-top: -8px;
   gap: 6px;
 
   padding: 4px 10px;
   border-radius: 12px;
+  background: #6593f8 ;
+  backdrop-filter: blur(4px);
+  
 
-  background: rgba(0, 140, 255, 0.35);
-  backdrop-filter: blur(3px);
-
-  color: #fff;
+  color: #ffffff;
   font-weight: 600;
   font-size: 12px;
 
@@ -114,10 +116,10 @@
 .sensor_box {
   width: 100%;
   padding: 10px 12px;
-  background: rgba(255, 255, 255, 0.45);
-  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(3px);
   border-radius: 14px;
-  margin-top: -5px;
+  margin-top: -80px;
 }
 
 .sensor_row {
@@ -137,16 +139,25 @@
 }
 
 .sensor_row span {
-  color: #ffffff;
+ 
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .sensor_value {
   font-weight: 700;
-  color: #fff;
+  
   min-width: 40px;
   text-align: right;
+}
+
+/* wifi status glow helpers */
+.wifi_icon.online {
+  filter: drop-shadow(0 4px 8px rgba(20, 83, 45, 0.25));
+}
+.wifi_icon.offline {
+  opacity: 0.6;
+  filter: grayscale(100%);
 }
 
 /* TREE IMAGE */
@@ -177,9 +188,8 @@
 .device_name h3 {
   margin: 0;
   font-size: var(--h3-font-size);
-  font-weight: 700;
-  color: #fff;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.25);
+  font-weight: 500;
+  color: #14532d;
 }
 
 .device_name p {

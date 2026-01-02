@@ -27,14 +27,14 @@ const SignupPage = () => {
     }
   };
 
-  const handleLoginClick = () => {
-    navigate("/");
+  const handleReturnClick = () => {
+    navigate("/login_page");
   };
   return (
     <div className="signup__section">
       <div className="signup__container">
         <div className="signup__logo">
-          <img src="./Tree.png" alt="anh ne" className="signup__img" />
+          <img src="./tree_header.png" alt="anh ne" className="signup__img" />
           <h1>Smart Watering</h1>
         </div>
         <div className="signup__form">
@@ -97,7 +97,7 @@ const SignupPage = () => {
           />
 
           <div className="btn__group">
-            <button className="btn__login" onClick={handleLoginClick}>
+            <button className="btn__login" onClick={handleReturnClick}>
               Quay lại
             </button>
             <button className="btn__signup" onClick={handleSubmit}>

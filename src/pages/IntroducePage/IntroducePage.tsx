@@ -162,7 +162,7 @@ const IntroducePage: React.FC = () => {
               <h3 className="introduce-team__name">Nguyễn Khổng Duy Hoàng</h3>
               <p className="introduce-team__role">IoT Engineer</p>
               <p className="introduce-team__description">
-                Chuyên gia về phần cứng và tích hợp hệ thống IoT
+                Chuyên gia phát triển web, phần cứng và tích hợp hệ thống IoT
               </p>
             </div>
           </div>

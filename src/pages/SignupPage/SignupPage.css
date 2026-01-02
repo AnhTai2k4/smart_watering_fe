@@ -1,5 +1,5 @@
 .signup__section {
-  background: #B2DA8A;
+  background: linear-gradient(135deg, #84cc16 0%, #65a30d 50%, #16a34a 100%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -25,21 +25,21 @@
 }
 
 .signup__logo h1 {
-  font-size: 2rem;
-  color: #1f2937;
+  font-size: 2.5rem;
+  color: white;
   font-weight: 700;
   margin: 0;
 }
 
 .signup__img {
-  width: 48px;
-  height: 48px;
+  width: 64px;
+  height: 64px;
 }
 
 .signup__form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 10px;
   background: #ffffff;
   width: 100%;
   padding: 32px 28px;
@@ -52,15 +52,15 @@
   text-align: center;
   font-size: 2rem;
   font-weight: 700;
-  color: #111827;
+  color: #166534;
   margin: 0 0 8px 0;
 }
 
 .signup__form .lable {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: #374151;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   display: block;
 }
 
@@ -90,8 +90,8 @@
 
 .signup__form .input__signup:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  border-color: #84cc16;
+  box-shadow: 0 0 0 3px rgba(132, 204, 22, 0.15);
 }
 
 .signup__form .input__signup::placeholder {
@@ -117,7 +117,7 @@
 
 .password__toggle:hover {
   opacity: 1;
-  color: #3b82f6;
+  color: #84cc16;
 }
 
 .signup__form .btn__group {
@@ -133,7 +133,7 @@
   height: 48px;
   border-radius: 10px;
   border: none;
-  background: #6DA544;
+  background: linear-gradient(135deg, #84cc16 0%, #16a34a 100%);
   color: #ffffff;
   font-size: 16px;
   font-weight: 700;
@@ -144,7 +144,7 @@
 
 .signup__form .btn__login:hover,
 .signup__form .btn__signup:hover {
-  background: #6DA544;
+  background: linear-gradient(135deg, #65a30d 0%, #15803d 100%);
 }
 
 .signup__form .btn__login:active,
@@ -161,14 +161,14 @@
 
 .signup__form a {
   text-decoration: none;
-  color: #2563eb;
+  color: #16a34a;
   font-size: 14px;
   font-weight: 600;
   transition: color 0.15s ease;
 }
 
 .signup__form a:hover {
-  color: #1d4ed8;
+  color: #15803d;
 }
 
 @media (max-width: 768px) {

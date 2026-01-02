@@ -104,6 +104,9 @@ const DataGroupPage = () => {
         <header className="data-group-page__header">
           <div>
             <h1 className="data-group-page__title">Nhóm: {groupName}</h1>
+            <p className="data-group-page__subtitle">
+              Xem và quản lý các thiết bị trong nhóm này.
+            </p>
           </div>
         </header>
 
@@ -179,44 +182,7 @@ const DataGroupPage = () => {
             </ul>
           </div>
 
-          <div className="dropdown">
-            <button
-              className="dropdown-toggle data-group-actions-btn"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <span className="data-group-sort-btn__icon">⋯</span>
-              <span>Thao tác</span>
-            </button>
-            <ul className="dropdown-menu">
-              <li>
-                <a
-                  className="dropdown-item"
-                  data-bs-toggle="modal"
-                  data-bs-target="#groupModal"
-                >
-                  Sửa thiết bị
-                </a>
-              </li>
-              <li>
-                <a
-                  className="dropdown-item"
-                  onClick={() => navigate(`/schedule_group_page?groupId=${id}`)}
-                >
-                  Hẹn lịch bơm
-                </a>
-              </li>
-              <li>
-                <a
-                  className="dropdown-item"
-                  onClick={() => navigate(`/schedule_group_page?groupId=${id}`)}
-                >
-                  Bơm ngay
-                </a>
-              </li>
-            </ul>
-          </div>
+         
         </div>
 
         <div className="data-group__section">

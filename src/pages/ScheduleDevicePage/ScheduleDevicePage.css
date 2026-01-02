@@ -1,14 +1,14 @@
 /* Màu sắc cơ bản */
 :root {
-  --primary-color: #4CAF50;
-  /* Màu xanh lá cây chính */
-  --secondary-color: #66BB6A;
+  --primary-color: #166534;
+  /* Màu xanh vàng chính */
+  --secondary-color: #16a34a;
   /* Màu xanh lá cây phụ */
   --text-dark: #333;
   --text-light: #555;
   --bg-light: #F8F8F8;
   --card-bg: #FFFFFF;
-  --border-color: #E0E0E0;
+  --border-color: #dcfce7;
 }
 
 /* Reset và Layout cơ bản */
@@ -30,7 +30,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background-color: var(--primary-color);
+  /* background-color: var(--primary-color); */
   color: white;
 }
 
@@ -65,14 +65,14 @@ body {
   & h3 {
     font-size: var(--h3-font-size);
     line-height: var(--h3-line-height);
-    color: #348e2b;
+    color: #166534;
     font-weight: 700;
     margin: 20px 20px;
 
     & span {
       font-size: var(--h3-font-size);
       line-height: var(--h3-line-height);
-      color: #348e2b;
+      color: #166534;
       font-weight: 400;
     }
   }
@@ -126,9 +126,9 @@ body {
   margin-top: 0;
   margin-bottom: 20px;
   font-weight: 600;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 2px solid #84cc16;
   padding-bottom: 15px;
-}
+}}
 
 .card-title i {
   margin-right: 10px;
@@ -147,7 +147,7 @@ body {
 }
 
 .schedule-item:nth-child(2) {
-  background-color: #e8f5e9;
+  background-color: #dcfce7;
   /* Nền xanh nhẹ hơn cho mục đang bật */
 }
 
@@ -219,12 +219,12 @@ body {
 }
 
 input:checked+.slider {
-  background-color: var(--primary-color);
-}
+  background-color: #84cc16;
+}}
 
 input:focus+.slider {
-  box-shadow: 0 0 1px var(--primary-color);
-}
+  box-shadow: 0 0 1px #84cc16;
+}}
 
 input:checked+.slider:before {
   transform: translateX(18px);

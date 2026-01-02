@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./HomePage.css";
 import { useNavigate } from "react-router-dom";
 import { getAllDevice } from "../../services/DeviceService/DeviceService";
@@ -22,60 +22,59 @@ const HomePage: React.FC = () => {
   const [news, setNews] = useState<NewsItem[]>([]);
   const [loadingNews, setLoadingNews] = useState<boolean>(false);
   const [errorNews, setErrorNews] = useState<string | null>(null);
-  const username = localStorage.getItem("username")
+  const username = localStorage.getItem("username");
   const [listDevice, setListDevice] = useState<any[]>([]);
   const [listGroup, setListGroup] = useState<any[]>([]);
   const [loadingDevice, setLoadingDevice] = useState<boolean>(true);
   const [loadingGroup, setLoadingGroup] = useState<boolean>(true);
   const [activeTab, setActiveTab] = useState<"device" | "group">("device");
-  console.log(username)
+  console.log(username);
 
   useEffect(() => {
     const allDevice = async () => {
       try {
         setLoadingDevice(true);
         const res = await getAllDevice();
-        console.log("all device", res)
-        setListDevice(res.data || [])
+        console.log("all device", res);
+        setListDevice(res.data || []);
       } catch (error) {
-        console.error("Error fetching devices:", error)
-        setListDevice([])
+        console.error("Error fetching devices:", error);
+        setListDevice([]);
       } finally {
         setLoadingDevice(false);
       }
-    }
+    };
 
     allDevice();
-  }, [])
+  }, []);
 
   useEffect(() => {
     const allGroup = async () => {
       try {
         setLoadingGroup(true);
         const res = await getAllGroup();
-        console.log("all group", res)
-        setListGroup(res.data || [])
+        console.log("all group", res);
+        setListGroup(res.data || []);
       } catch (error) {
-        console.error("Error fetching groups:", error)
-        setListGroup([])
+        console.error("Error fetching groups:", error);
+        setListGroup([]);
       } finally {
         setLoadingGroup(false);
       }
-    }
+    };
 
     allGroup();
-  }, [])
+  }, []);
 
   useEffect(() => {
     const getEmailVerified = async () => {
-      const res = await getUser()
+      const res = await getUser();
       localStorage.setItem("email", res.data.email);
       localStorage.setItem("verified", res.data.verified);
-    }
+    };
 
     getEmailVerified();
-  }, [])
-
+  }, []);
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -105,7 +104,6 @@ const HomePage: React.FC = () => {
     fetchNews();
   }, []);
 
-
   const handleOpenArticle = (item: NewsItem) => {
     const path = item.redirectUrl || item.url;
     if (!path) return;
@@ -120,10 +118,18 @@ const HomePage: React.FC = () => {
       <section className="home-hero">
         <div>
           <p className="home-hero__welcome">Xin chào,</p>
-          <h1 className="home-hero__username" style={{fontFamily:"serif"}}>
-            {username ? username.toUpperCase() : "Người dùng mới".toUpperCase()}
+          <h1 className="home-hero__username">
+            {username ? username.toUpperCase() : "USERNAME".toUpperCase()}
           </h1>
-          {username ? <p className="home-hero__welcome">Hệ thống tưới tự động của bạn đang hoạt động tốt</p> : <p className="home-hero__welcome">Bạn cần đăng nhập để sử dụng hệ thống tưới cây</p>}
+          {username ? (
+            <p className="home-hero__welcome">
+              Hệ thống tưới tự động của bạn đang hoạt động tốt
+            </p>
+          ) : (
+            <p className="home-hero__welcome">
+              Bạn cần đăng nhập để sử dụng hệ thống tưới cây
+            </p>
+          )}
         </div>
         <button
           className="home-hero__primary-btn"
@@ -133,121 +139,192 @@ const HomePage: React.FC = () => {
         </button>
       </section>
 
-      <section className="home-section">
-        <div className="home-section__header">
-          <h2>Lịch tưới sắp tới</h2>
-          <button className="home-section__view-all" onClick={() => navigate("/device_page")}>
-            Xem tất cả
-          </button>
-        </div>
+      {username && (
+        <section className="home-section">
+          <div className="home-section__header">
+            <h2>Lịch tưới sắp tới</h2>
+            <button
+              className="home-section__view-all"
+              onClick={() => navigate("/device_page")}
+            >
+              Xem tất cả
+            </button>
+          </div>
 
-        <div className="home-tabs">
-          <button 
-            className={`home-tab ${activeTab === "device" ? "home-tab--active" : ""}`}
-            onClick={() => setActiveTab("device")}
-          >
-            Theo thiết bị
-          </button>
-          <button 
-            className={`home-tab ${activeTab === "group" ? "home-tab--active" : ""}`}
-            onClick={() => setActiveTab("group")}
-          >
-            Theo nhóm
-          </button>
-        </div>
+          <div className="home-tabs">
+            <button
+              className={`home-tab ${
+                activeTab === "device" ? "home-tab--active" : ""
+              }`}
+              onClick={() => setActiveTab("device")}
+            >
+              Theo thiết bị
+            </button>
+            <button
+              className={`home-tab ${
+                activeTab === "group" ? "home-tab--active" : ""
+              }`}
+              onClick={() => setActiveTab("group")}
+            >
+              Theo nhóm
+            </button>
+          </div>
 
-        {activeTab === "device" ? (
-          <div className="home-schedule-list">
-            {loadingDevice ? (
-              <div className="home-schedule-loading">
-                <div className="home-schedule-loading__spinner"></div>
-                <p className="home-schedule-loading__text">Đang lấy danh sách lịch tưới...</p>
-              </div>
-            ) : listDevice.filter(item => item.nextSchedule).length === 0 ? (
-              <div className="home-schedule-empty">
-                <div className="home-schedule-empty__icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                    <line x1="12" y1="10" x2="12" y2="16"></line>
-                    <line x1="12" y1="16" x2="16" y2="16"></line>
-                  </svg>
-                  <div className="home-schedule-empty__x">✕</div>
+          {activeTab === "device" ? (
+            <div className="home-schedule-list">
+              {loadingDevice ? (
+                <div className="home-schedule-loading">
+                  <div className="home-schedule-loading__spinner"></div>
+                  <p className="home-schedule-loading__text">
+                    Đang lấy danh sách lịch tưới...
+                  </p>
                 </div>
-                <p className="home-schedule-empty__text">Không có lịch tưới thiết bị sắp tới</p>
-              </div>
-            ) : (
-              listDevice.map((item) => (
-                item.nextSchedule ?
-                  <div key={item.id} className="home-schedule-card">
-                    <div className="home-schedule-card__left">
-                      <div className="home-schedule-card__icon">
-                        <span role="img" aria-label="clock">
-                          ⏰
-                        </span>
+              ) : listDevice.filter((item) => item.nextSchedule).length ===
+                0 ? (
+                <div className="home-schedule-empty">
+                  <div className="home-schedule-empty__icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="64"
+                      height="64"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <rect
+                        x="3"
+                        y="4"
+                        width="18"
+                        height="18"
+                        rx="2"
+                        ry="2"
+                      ></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                      <line x1="12" y1="10" x2="12" y2="16"></line>
+                      <line x1="12" y1="16" x2="16" y2="16"></line>
+                    </svg>
+                    <div className="home-schedule-empty__x">✕</div>
+                  </div>
+                  <p className="home-schedule-empty__text">
+                    Không có lịch tưới thiết bị sắp tới
+                  </p>
+                </div>
+              ) : (
+                listDevice.map((item) =>
+                  item.nextSchedule ? (
+                    <div key={item.id} className="home-schedule-card">
+                      <div className="home-schedule-card__left">
+                        <div className="home-schedule-card__icon">
+                          <span role="img" aria-label="clock">
+                            ⏰
+                          </span>
+                        </div>
+                        <div>
+                          <h3>{item.name}</h3>
+                          <p className="home-schedule-card__time">
+                            {item.nextSchedule.startTime}
+                          </p>
+                          <p className="home-schedule-card__duration">
+                            Bơm {item.nextSchedule.duration}s
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <h3>{item.name}</h3>
-                        <p className="home-schedule-card__time">{item.nextSchedule.startTime}</p>
-                        <p className="home-schedule-card__duration">Bơm {item.nextSchedule.duration}s</p>
+                      <div className="home-schedule-card__right">
+                        Còn {Math.floor(item.nextSchedule.runAfter / 3600)} giờ{" "}
+                        {Math.floor(item.nextSchedule.runAfter / 60) -
+                          Math.floor(item.nextSchedule.runAfter / 3600) *
+                            60}{" "}
+                        phút
                       </div>
                     </div>
-                    <div className="home-schedule-card__right">Còn {Math.floor(item.nextSchedule.runAfter / 3600)} giờ {Math.floor(item.nextSchedule.runAfter / 60) - Math.floor(item.nextSchedule.runAfter / 3600) * 60} phút</div>
-                  </div>
-                  :
-                  null
-              ))
-            )}
-          </div>
-        ) : (
-          <div className="home-schedule-list">
-            {loadingGroup ? (
-              <div className="home-schedule-loading">
-                <div className="home-schedule-loading__spinner"></div>
-                <p className="home-schedule-loading__text">Đang lấy danh sách lịch tưới...</p>
-              </div>
-            ) : listGroup.filter((item: any) => item.nextSchedule).length === 0 ? (
-              <div className="home-schedule-empty">
-                <div className="home-schedule-empty__icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                    <line x1="12" y1="10" x2="12" y2="16"></line>
-                    <line x1="12" y1="16" x2="16" y2="16"></line>
-                  </svg>
-                  <div className="home-schedule-empty__x">✕</div>
+                  ) : null
+                )
+              )}
+            </div>
+          ) : (
+            <div className="home-schedule-list">
+              {loadingGroup ? (
+                <div className="home-schedule-loading">
+                  <div className="home-schedule-loading__spinner"></div>
+                  <p className="home-schedule-loading__text">
+                    Đang lấy danh sách lịch tưới...
+                  </p>
                 </div>
-                <p className="home-schedule-empty__text">Không có lịch tưới nhóm sắp tới</p>
-              </div>
-            ) : (
-              listGroup.map((item: any) => (
-                item.nextSchedule ?
-                  <div key={item.id} className="home-schedule-card">
-                    <div className="home-schedule-card__left">
-                      <div className="home-schedule-card__icon">
-                        <span role="img" aria-label="clock">
-                          ⏰
-                        </span>
+              ) : listGroup.filter((item: any) => item.nextSchedule).length ===
+                0 ? (
+                <div className="home-schedule-empty">
+                  <div className="home-schedule-empty__icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="64"
+                      height="64"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <rect
+                        x="3"
+                        y="4"
+                        width="18"
+                        height="18"
+                        rx="2"
+                        ry="2"
+                      ></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                      <line x1="12" y1="10" x2="12" y2="16"></line>
+                      <line x1="12" y1="16" x2="16" y2="16"></line>
+                    </svg>
+                    <div className="home-schedule-empty__x">✕</div>
+                  </div>
+                  <p className="home-schedule-empty__text">
+                    Không có lịch tưới nhóm sắp tới
+                  </p>
+                </div>
+              ) : (
+                listGroup.map((item: any) =>
+                  item.nextSchedule ? (
+                    <div key={item.id} className="home-schedule-card">
+                      <div className="home-schedule-card__left">
+                        <div className="home-schedule-card__icon">
+                          <span role="img" aria-label="clock">
+                            ⏰
+                          </span>
+                        </div>
+                        <div>
+                          <h3>{item.name}</h3>
+                          <p className="home-schedule-card__time">
+                            {item.nextSchedule.startTime}
+                          </p>
+                          <p className="home-schedule-card__duration">
+                            Bơm {item.nextSchedule.duration}s
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <h3>{item.name}</h3>
-                        <p className="home-schedule-card__time">{item.nextSchedule.startTime}</p>
-                        <p className="home-schedule-card__duration">Bơm {item.nextSchedule.duration}s</p>
+                      <div className="home-schedule-card__right">
+                        Còn {Math.floor(item.nextSchedule.runAfter / 3600)} giờ{" "}
+                        {Math.floor(item.nextSchedule.runAfter / 60) -
+                          Math.floor(item.nextSchedule.runAfter / 3600) *
+                            60}{" "}
+                        phút
                       </div>
                     </div>
-                    <div className="home-schedule-card__right">Còn {Math.floor(item.nextSchedule.runAfter / 3600)} giờ {Math.floor(item.nextSchedule.runAfter / 60) - Math.floor(item.nextSchedule.runAfter / 3600) * 60} phút</div>
-                  </div>
-                  :
-                  null
-              ))
-            )}
-          </div>
-        )}
-      </section>
+                  ) : null
+                )
+              )}
+            </div>
+          )}
+        </section>
+      )}
 
       <section className="home-section">
         <div className="home-section__header">
@@ -263,7 +340,11 @@ const HomePage: React.FC = () => {
         </div>
 
         {loadingNews && <p className="home-news__state">Đang tải tin tức...</p>}
-        {errorNews && <p className="home-news__state home-news__state--error">{errorNews}</p>}
+        {errorNews && (
+          <p className="home-news__state home-news__state--error">
+            {errorNews}
+          </p>
+        )}
 
         {!loadingNews && !errorNews && (
           <div className="home-news-list">
@@ -296,5 +377,3 @@ const HomePage: React.FC = () => {
 };
 
 export default HomePage;
-
-

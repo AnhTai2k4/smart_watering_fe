@@ -1,5 +1,5 @@
 .login__section {
-  background: #B2DA8A;
+  background: linear-gradient(135deg, #84cc16 0%, #65a30d 50%, #16a34a 100%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,7 +26,7 @@
 
 .login__logo h1 {
   font-size: 2.25rem;
-  color: #1f2937;
+  color: white;
   font-weight: 700;
   margin: 0;
 }
@@ -39,7 +39,7 @@
 .login__form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 10px;
   background: #ffffff;
   width: 100%;
   padding: 32px 28px;
@@ -52,12 +52,12 @@
   text-align: center;
   font-size: 2rem;
   font-weight: 700;
-  color: #111827;
+  color: #166534;
   margin: 0 0 8px 0;
 }
 
 .login__form .lable {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: #374151;
   margin-bottom: 6px;
@@ -90,8 +90,8 @@
 
 .login__form .input__login:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  border-color: #84cc16;
+  box-shadow: 0 0 0 3px rgba(132, 204, 22, 0.15);
 }
 
 .login__form .input__login::placeholder {
@@ -117,7 +117,7 @@
 
 .password__toggle:hover {
   opacity: 1;
-  color: #B2DA8A;
+  color: #84cc16;
 }
 
 .login__form .btn__login {
@@ -125,7 +125,7 @@
   height: 48px;
   border-radius: 10px;
   border: none;
-  background: #6DA544;
+  background: linear-gradient(135deg, #84cc16 0%, #16a34a 100%);
   color: #ffffff;
   font-size: 16px;
   font-weight: 700;
@@ -134,7 +134,7 @@
 }
 
 .login__form .btn__login:hover {
-  background: #6DA544;
+  background: linear-gradient(135deg, #65a30d 0%, #15803d 100%);
 }
 
 .login__form .btn__login:active {
@@ -150,14 +150,14 @@
 
 .login__form a {
   text-decoration: none;
-  color: #2563eb;
+  color: #16a34a;
   font-size: 14px;
   font-weight: 600;
   transition: color 0.15s ease;
 }
 
 .login__form a:hover {
-  color: ##6DA544;
+  color: #15803d;
 }
 
 @media (max-width: 768px) {

@@ -29,7 +29,7 @@ const Group_card = ({ groupName, id }: Props) => {
 
       {/* ICON GROUP */}
       <div className="group_icon">
-        <img src="./Tree_white.png" alt="Group" />
+        <img src="./tree.png" alt="Group" />
       </div>
 
       {/* GROUP NAME */}
