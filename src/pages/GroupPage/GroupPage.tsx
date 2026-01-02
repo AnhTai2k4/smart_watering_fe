@@ -2,7 +2,6 @@ import "./GroupPage.css";
 import { useEffect, useState } from "react";
 import Group_Card from "../../components/Group_Card/Group_Card";
 import CreateGroup from "../../components/CreateGroup/CreateGroup";
-import CreateDevice from "../../components/CreateDevice/CreateDevice";
 
 const GroupPage = () => {
   const [groups, setGroups] = useState([]);

@@ -1,10 +1,8 @@
 import Device_card from "../../components/Device_card/Device_card";
-import CreateDevice from "../../components/CreateDevice/CreateDevice";
 import "./DevicePage.css";
 import { useDeviceContext } from "../../contexts/DeviceContext/DeviceContext";
 import { getAllDevice } from "../../services/DeviceService/DeviceService";
 import { useEffect, useState } from "react";
-import GroupPage from "../GroupPage/GroupPage";
 import CreateGroup from "../../components/CreateGroup/CreateGroup";
 import { useNavigate } from "react-router-dom";
 

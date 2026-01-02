@@ -18,7 +18,8 @@ const DataDevicePage = () => {
   const [topicWatering, setTopicWatering] = useState("")
   const [deviceId, setDeviceId] = useState("")
   const [isWatering, setIsWatering] = useState(false)
-  const [isOnline, setIsOnline] = useState(false)
+  // const [isOnline, setIsOnline] = useState(false)
+  
   const [historyWateringData, setHistoryWateringData] = useState([])
 
   const [historySensorData, setHistorySensorData] = useState([])
@@ -89,8 +90,8 @@ const DataDevicePage = () => {
       client.subscribe(`/user/device/status/${deviceId}`, (message) => {
         const data = JSON.parse(message.body);
         console.log("🟢 Device status:", data);
-        if(data.status == "online") setIsOnline(true);
-        else setIsOnline(false);
+        // if(data.status == "online") setIsOnline(true);
+        // else setIsOnline(false);
       });
 
       // Lắng nghe trạng thái máy bơm

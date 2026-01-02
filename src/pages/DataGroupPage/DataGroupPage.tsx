@@ -91,6 +91,8 @@ const DataGroupPage = () => {
   }, [fieldSort]);
 
   const handleSort = (field: string, label: string) => {
+    console.log("field: ", field);
+    console.log("label: ", label);
     if (field === "") {
       setFieldSort("Sắp xếp");
     } else {

@@ -23,7 +23,7 @@ const EmailVerificationPage = () => {
     setOtpSent(true)
     setCountdown(60) // 60 giây
     // TODO: Gọi API gửi OTP
-    const res = await sendOTP(email)
+    await sendOTP(email)
   }
 
   const handleOTPChange = (index: number, value: string) => {
