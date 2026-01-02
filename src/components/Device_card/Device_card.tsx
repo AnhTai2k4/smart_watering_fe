@@ -155,7 +155,7 @@ const Device_card = ({ deviceName, id }: deviceCardProps) => {
 
       {/* TREE ICON */}
       <div className="tree_icon">
-        <img src="/tree.png" alt="tree" />
+        <img src="/tree_icon.png" alt="tree" />
       </div>
 
       {/* SENSOR VALUES */}
