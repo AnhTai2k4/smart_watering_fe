@@ -63,7 +63,7 @@ const ScheduleGroupPage: React.FC = () => {
     try {
       if (!groupId) return
       setPumping(action === "START")
-      await pumpGroup(groupId, action, water)
+      await pumpGroup(groupId, action, water*60)
       if (action === "STOP") setWater(0)
       // Refresh lịch sử bơm sau khi bơm thành công
       const res = await getHistoryPumpGroup(groupId)
@@ -82,7 +82,7 @@ const ScheduleGroupPage: React.FC = () => {
 
   const handleCreateSchedule = async () => {
     if (!groupId) return
-    await createScheduleGroup(groupId, startTime, duration, repeatType, daysOfWeek)
+    await createScheduleGroup(groupId, startTime, duration*60, repeatType, daysOfWeek)
     setRefreshFlag((p) => p + 1)
   }
 
@@ -175,7 +175,7 @@ const ScheduleGroupPage: React.FC = () => {
                       {historyPump.map((item: any, idx: number) => (
                         <tr key={idx}>
                           <td>{item.startTime ? new Date(item.startTime).toLocaleString() : "--"}</td>
-                          <td>{item.duration ? `${item.duration} s` : "--"}</td>
+                          <td>{item.duration ? `${(item.duration/60).toFixed(1)} phút` : "--"}</td>
                           <td>Nhóm</td>
                         </tr>
                       ))}
@@ -243,7 +243,7 @@ const ScheduleGroupPage: React.FC = () => {
                     } as React.CSSProperties
                   }
                 />
-                <span className="water-amount-value">{`${duration} s`}</span>
+                <span className="water-amount-value">{`${duration} phút`}</span>
               </div>
 
               <button className="primary-btn" onClick={handleCreateSchedule}>
@@ -261,8 +261,8 @@ const ScheduleGroupPage: React.FC = () => {
                     <div className="time">{schedule.startTime}</div>
                     <div className="desc">
                       {schedule.repeatType === "DAYS"
-                        ? `${schedule.daysOfWeek.join(", ")} | ${schedule.duration}s`
-                        : `${schedule.repeatType === "ONE_TIME" ? "Một lần" : "Mỗi ngày"} | ${schedule.duration}s`}
+                        ? `${schedule.daysOfWeek.join(", ")} | ${(schedule.duration/60).toFixed(1)} phút`
+                        : `${schedule.repeatType === "ONE_TIME" ? "Một lần" : "Mỗi ngày"} | ${(schedule.duration/60).toFixed(1)} phút`}
                     </div>
                   </div>
                   <div className="controls">
