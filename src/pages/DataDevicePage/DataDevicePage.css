@@ -305,10 +305,18 @@ h3 {
 }
 
 @media (max-width: 768px) {
+  .data__section {
+    padding-bottom: 80px; /* Space for bottom nav */
+  }
+
   .data__section .device__container {
     flex-direction: column;
     gap: 24px;
     padding: 24px 16px;
+  }
+  
+  .data__section .device__container .action__container {
+    padding: 24px 20px;
   }
 
   .data__section .device__container .action__box {
@@ -320,8 +328,24 @@ h3 {
     height: 120px;
     width: 120px;
   }
+  
+  .data__section .device__container .action__box .pump__section .pump__button {
+     flex-direction: column;
+     align-items: stretch;
+  }
+  
+  .data__section .device__container .action__box .pump__section .pump__button button {
+    width: 100%;
+  }
 
   .data__section .back__container {
     padding: 0 16px;
+    top: 0; /* Adjust if header behavior changes */
+  }
+  
+  .my-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
   }
 }

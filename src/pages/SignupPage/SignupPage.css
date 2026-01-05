@@ -178,20 +178,32 @@
   }
 
   .signup__logo h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .signup__img {
-    width: 64px;
-    height: 64px;
+    width: 50px;
+    height: 50px;
   }
 
   .signup__form {
-    padding: 28px 22px;
+    padding: 24px 20px;
     border-radius: 10px;
   }
 
   .signup__form .h2__title {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
+  }
+  
+  .signup__form .btn__group {
+     flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .signup__logo {
+     flex-direction: column;
+     gap: 10px;
+     text-align: center;
   }
 }

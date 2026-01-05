@@ -255,7 +255,7 @@
 
 @media (max-width: 768px) {
   .data-group-page {
-    padding: 24px 16px 32px;
+    padding: 16px 12px 80px;
   }
 
   .data-group-page__header {
@@ -265,7 +265,7 @@
   }
 
   .data-group-page__title {
-    font-size: 1.875rem;
+    font-size: 1.75rem;
   }
 
   .data-group-page__toolbar {
@@ -279,17 +279,23 @@
   }
 
   .data-group__section {
-    padding: 24px 20px;
+    padding: 20px 16px;
   }
 
   .data-group__container {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 
   .dropup__container {
-    right: 20px;
-    bottom: 20px;
+    right: 16px;
+    bottom: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+   .data-group__container {
+    grid-template-columns: 1fr;
   }
 }
 

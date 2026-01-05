@@ -255,7 +255,7 @@
 
 @media (max-width: 768px) {
   .device-page {
-    padding: 24px 16px 32px;
+    padding: 16px 12px 80px; /* Added bottom padding for bottom nav */
   }
 
   .device-page__header {
@@ -265,30 +265,48 @@
   }
 
   .device-page__title {
-    font-size: 1.875rem;
+    font-size: 1.75rem;
+  }
+  
+  .device-page__subtitle {
+    font-size: 1rem;
   }
 
   .device-page__toolbar {
     flex-direction: column;
     align-items: stretch;
     padding: 16px;
+    gap: 12px;
   }
 
   .device-search {
     width: 100%;
+    min-height: 48px;
+  }
+  
+  .device-sort-btn {
+    width: 100%;
+    justify-content: space-between;
+    min-height: 48px;
   }
 
   .device__section {
-    padding: 24px 20px;
+    padding: 20px 16px;
   }
 
   .device__container {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(2, 1fr); /* Force 2 columns on mobile if possible */
+    gap: 12px;
   }
-
+  
   .dropup__container {
-    right: 20px;
-    bottom: 20px;
+    right: 16px;
+    bottom: 90px; /* Lift above bottom nav */
+  }
+}
+
+@media (max-width: 480px) {
+  .device__container {
+    grid-template-columns: 1fr; /* Single column for very small screens */
   }
 }

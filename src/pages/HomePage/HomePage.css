@@ -423,19 +423,52 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
-    padding: 24px 28px;
+    padding: 24px 20px;
   }
 
   .home-hero__username {
-    font-size: 2rem;
+    font-size: 1.75rem;
+  }
+
+  .home-hero__welcome {
+    font-size: 1rem;
+  }
+
+  .home-hero__primary-btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
   }
 
   .home-section {
-    padding: 24px 20px;
+    padding: 20px 16px;
+  }
+  
+  .home-section__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .home-section__view-all {
+    align-self: flex-end;
+    font-size: 0.875rem;
   }
 
   .home-news-list {
     grid-template-columns: minmax(0, 1fr);
     gap: 16px;
+  }
+  
+  .home-schedule-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .home-schedule-card__right {
+    width: 100%;
+    text-align: center;
+    background: rgba(45, 125, 244, 0.15);
   }
 }
