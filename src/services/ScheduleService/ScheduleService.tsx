@@ -1,8 +1,9 @@
 import axios from "axios"
+import axiosJWT from "../AxiosClient/AxiosClient.tsx";
 
 export const createSchedule = async (id:string, data: object) =>{
     const access_token = localStorage.getItem("token")
-    const res = await axios.post(`${import.meta.env.VITE_BE_URL}/devices/${id}/schedule`,
+    const res = await axiosJWT.post(`${import.meta.env.VITE_BE_URL}/devices/${id}/schedule`,
         data,
         {
             headers:{
@@ -16,7 +17,7 @@ export const createSchedule = async (id:string, data: object) =>{
 
 export const getListSchedule = async (id:string) =>{
     const access_token = localStorage.getItem("token")
-    const res = await axios.get(`${import.meta.env.VITE_BE_URL}/devices/${id}/schedule`,
+    const res = await axiosJWT.get(`${import.meta.env.VITE_BE_URL}/devices/${id}/schedule`,
         {
             headers:{
                 Authorization:`Bearer ${access_token}`
@@ -29,7 +30,7 @@ export const getListSchedule = async (id:string) =>{
 
 export const turnSchedule = async (deviceId:string, scheduleId:string, status: boolean) =>{
     const access_token = localStorage.getItem("token")
-    const res = await axios.post(`${import.meta.env.VITE_BE_URL}/devices/${deviceId}/schedule/${scheduleId}/trigger`,
+    const res = await axiosJWT.post(`${import.meta.env.VITE_BE_URL}/devices/${deviceId}/schedule/${scheduleId}/trigger`,
         {status}
         ,
         {
@@ -44,7 +45,7 @@ export const turnSchedule = async (deviceId:string, scheduleId:string, status: b
 
 export const deleteSchedule = async (deviceId:string, scheduleId:string) =>{
     const access_token = localStorage.getItem("token")
-    const res = await axios.delete(`${import.meta.env.VITE_BE_URL}/devices/${deviceId}/schedule/${scheduleId}`,
+    const res = await axiosJWT.delete(`${import.meta.env.VITE_BE_URL}/devices/${deviceId}/schedule/${scheduleId}`,
         {
             headers:{
                 Authorization:`Bearer ${access_token}`

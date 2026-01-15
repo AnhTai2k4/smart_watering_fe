@@ -1,9 +1,10 @@
 import axios from "axios";
+import axiosJWT from "../AxiosClient/AxiosClient.tsx";
 
 export const createDevice = async (deviceId: String, deviceName: String) => {
   const token = localStorage.getItem("token");
   console.log(token);
-  const res = await axios.post(
+  const res = await axiosJWT.post(
     `${import.meta.env.VITE_BE_URL}/devices`,
     {
       deviceId: deviceId,
@@ -22,7 +23,7 @@ export const createDevice = async (deviceId: String, deviceName: String) => {
 
 export const getAllDevice = async () => {
   const token = localStorage.getItem("token");
-  const result = await axios.get(`${import.meta.env.VITE_BE_URL}/devices`, {
+  const result = await axiosJWT.get(`${import.meta.env.VITE_BE_URL}/devices`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -36,7 +37,7 @@ export const getAllDevice = async () => {
 
 export const getDeviceById = async (id: String) => {
   const token = localStorage.getItem("token");
-  const result = await axios.get(
+  const result = await axiosJWT.get(
     `${import.meta.env.VITE_BE_URL}/devices/${id}`,
     {
       headers: {
@@ -53,7 +54,7 @@ export const getDeviceById = async (id: String) => {
 
 export const deleteDevice = async (id: String) => {
   const token = localStorage.getItem("token");
-  const res = await axios.delete(
+  const res = await axiosJWT.delete(
     `${import.meta.env.VITE_BE_URL}/devices/${id}`,
     {
       headers: {
@@ -70,7 +71,7 @@ export const deleteDevice = async (id: String) => {
 
 export const getHistorySensorData = async (id: String) => {
   const token = localStorage.getItem("token");
-  const res = await axios.get(
+  const res = await axiosJWT.get(
     `${import.meta.env.VITE_BE_URL}/devices/${id}/sensor/history`,
     {
       headers: {
@@ -87,7 +88,7 @@ export const getHistorySensorData = async (id: String) => {
 
 export const getHistoryWateringData = async (id: String) => {
   const token = localStorage.getItem("token");
-  const res = await axios.get(
+  const res = await axiosJWT.get(
     `${import.meta.env.VITE_BE_URL}/devices/${id}/watering/history`,
     {
       headers: {
@@ -104,7 +105,7 @@ export const getHistoryWateringData = async (id: String) => {
 
 export const pumpWater = async (id: String|undefined, water: Number, action: String) => {
   const token = localStorage.getItem("token");
-  const res= await axios.post(`${import.meta.env.VITE_BE_URL}/devices/${id}/watering`,{
+  const res= await axiosJWT.post(`${import.meta.env.VITE_BE_URL}/devices/${id}/watering`,{
     duration: water,
     action: action
   },{

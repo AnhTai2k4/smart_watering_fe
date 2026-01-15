@@ -2,11 +2,13 @@ import "./CreateDevice.css";
 import { useDeviceContext } from "../../contexts/DeviceContext/DeviceContext";
 import { useEffect, useState } from "react";
 import { createDevice } from "../../services/DeviceService/DeviceService";
+import { useNavigate } from "react-router-dom";
 
 const CreateDevice = () => {
   const [deviceName, setDeviceName] = useState<string>("");
   const [deviceId, setDeviceId] = useState<string>("");
   const { devices, addDevice } = useDeviceContext();
+  const navigate = useNavigate();
 
   const handleCreateDevice = async (
     e: React.MouseEvent<HTMLButtonElement>
@@ -16,6 +18,7 @@ const CreateDevice = () => {
     try {
       const newDevice = await createDevice(deviceId, deviceName);
       addDevice(newDevice.data);
+      navigate("/device_page");
     } catch (err) {
       console.error("Lỗi API:", err);
     }

@@ -1,4 +1,6 @@
-import axios from "axios"
+import axios from "axios";
+import axiosJWT from "../AxiosClient/AxiosClient.tsx";
+
 export const login = async (userName: string, password: string) => {
     const res = await axios.post(`${import.meta.env.VITE_BE_URL}/auth/log-in`, {
         "username": userName,
@@ -9,7 +11,7 @@ export const login = async (userName: string, password: string) => {
 
 export const getUser = async () => {
     const token = localStorage.getItem("token")
-    const res = await axios.get(`${import.meta.env.VITE_BE_URL}/users`,
+    const res = await axiosJWT.get(`${import.meta.env.VITE_BE_URL}/users`,
         {
             headers: {
                 Authorization: `Bearer ${token}`

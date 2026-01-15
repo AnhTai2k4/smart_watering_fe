@@ -1,8 +1,9 @@
 import axios from "axios"
+import axiosJWT from "../AxiosClient/AxiosClient.tsx";
 
 export const createGroup = async (name:string, devices:string[])=>{
     const access_token = localStorage.getItem("token")
-    const res = await axios.post(`${import.meta.env.VITE_BE_URL}/groups`,
+    const res = await axiosJWT.post(`${import.meta.env.VITE_BE_URL}/groups`,
         {
             name:name,
             devices:devices
@@ -18,7 +19,7 @@ export const createGroup = async (name:string, devices:string[])=>{
 
 export const getAllGroup = async ()=>{
     const access_token = localStorage.getItem("token")
-    const res = await axios.get(`${import.meta.env.VITE_BE_URL}/groups`,
+    const res = await axiosJWT.get(`${import.meta.env.VITE_BE_URL}/groups`,
         {
             headers:{
                 Authorization:`Bearer ${access_token}`
@@ -30,7 +31,7 @@ export const getAllGroup = async ()=>{
 
 export const getGroupById = async (id:string)=>{
     const access_token = localStorage.getItem("token")
-    const res = await axios.get(`${import.meta.env.VITE_BE_URL}/groups/${id}`,
+    const res = await axiosJWT.get(`${import.meta.env.VITE_BE_URL}/groups/${id}`,
         {
             headers:{
                 Authorization:`Bearer ${access_token}`
@@ -42,7 +43,7 @@ export const getGroupById = async (id:string)=>{
 
 export const deleteGroup = async (id:string)=>{
     const access_token = localStorage.getItem("token")
-    const res = await axios.delete(`${import.meta.env.VITE_BE_URL}/groups/${id}`,
+    const res = await axiosJWT.delete(`${import.meta.env.VITE_BE_URL}/groups/${id}`,
         {
             headers:{
                 Authorization:`Bearer ${access_token}`
@@ -54,7 +55,7 @@ export const deleteGroup = async (id:string)=>{
 
 export const updateGroup = async (id:string, name:string, devices:string[])=>{
     const access_token = localStorage.getItem("token")
-    const res = await axios.put(`${import.meta.env.VITE_BE_URL}/groups/${id}`,
+    const res = await axiosJWT.put(`${import.meta.env.VITE_BE_URL}/groups/${id}`,
         {
             name:name,
             devices:devices
@@ -71,7 +72,7 @@ export const updateGroup = async (id:string, name:string, devices:string[])=>{
 
 export const pumpGroup = async (id:string, action:string, duration:number)=>{
     const access_token = localStorage.getItem("token")
-    const res = await axios.post(`${import.meta.env.VITE_BE_URL}/groups/${id}/watering`,
+    const res = await axiosJWT.post(`${import.meta.env.VITE_BE_URL}/groups/${id}/watering`,
         {
             action:action,
             duration:duration
@@ -87,7 +88,7 @@ export const pumpGroup = async (id:string, action:string, duration:number)=>{
 
 export const getHistoryPumpGroup = async (id:string)=>{
     const access_token = localStorage.getItem("token")
-    const res = await axios.get(`${import.meta.env.VITE_BE_URL}/groups/${id}/watering/history`,
+    const res = await axiosJWT.get(`${import.meta.env.VITE_BE_URL}/groups/${id}/watering/history`,
         {
             headers:{
                 Authorization:`Bearer ${access_token}`
@@ -99,7 +100,7 @@ export const getHistoryPumpGroup = async (id:string)=>{
 
 export const createScheduleGroup = async (id:string, startTime:string, duration:number, repeatType:string, daysOfWeek:string[])=>{
     const access_token = localStorage.getItem("token")
-    const res = await axios.post(`${import.meta.env.VITE_BE_URL}/groups/${id}/schedule`,
+    const res = await axiosJWT.post(`${import.meta.env.VITE_BE_URL}/groups/${id}/schedule`,
         {
             startTime:startTime,
             duration:duration,
@@ -118,7 +119,7 @@ export const createScheduleGroup = async (id:string, startTime:string, duration:
 
 export const getListScheduleGroup = async (id:string)=>{
     const access_token = localStorage.getItem("token")
-    const res = await axios.get(`${import.meta.env.VITE_BE_URL}/groups/${id}/schedule`,
+    const res = await axiosJWT.get(`${import.meta.env.VITE_BE_URL}/groups/${id}/schedule`,
         {
             headers:{
                 Authorization:`Bearer ${access_token}`
@@ -130,7 +131,7 @@ export const getListScheduleGroup = async (id:string)=>{
 
 export const deleteScheduleGroup = async (groupId:string, scheduleId:string)=>{
     const access_token = localStorage.getItem("token")
-    const res = await axios.delete(`${import.meta.env.VITE_BE_URL}/groups/${groupId}/schedule/${scheduleId}`,
+    const res = await axiosJWT.delete(`${import.meta.env.VITE_BE_URL}/groups/${groupId}/schedule/${scheduleId}`,
         {
             headers:{
                 Authorization:`Bearer ${access_token}`
@@ -142,7 +143,7 @@ export const deleteScheduleGroup = async (groupId:string, scheduleId:string)=>{
 
 export const triggerScheduleGroup = async (groupId:string, scheduleId:string,status: boolean)=>{
     const access_token = localStorage.getItem("token")
-    const res = await axios.post(`${import.meta.env.VITE_BE_URL}/groups/${groupId}/schedule/${scheduleId}/trigger`,
+    const res = await axiosJWT.post(`${import.meta.env.VITE_BE_URL}/groups/${groupId}/schedule/${scheduleId}/trigger`,
         {
             status
         }

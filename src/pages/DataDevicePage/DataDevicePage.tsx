@@ -217,7 +217,7 @@ const DataDevicePage = () => {
                 <h3>Nhiệt độ</h3>
               </div>
               <div className="label-right">
-                <h3>{sensorData.temp} ℃</h3>
+                <h3>{sensorData.temp||"..."} ℃</h3>
               </div>
             </div>
             <ChartData datas={historySensorData} type="temp" />
@@ -232,7 +232,7 @@ const DataDevicePage = () => {
                 <h3>Độ ẩm không khí</h3>
               </div>
               <div className="label-right">
-                <h3>{sensorData.air}%</h3>
+                <h3>{sensorData.air||"..."}%</h3>
               </div>
             </div>
             <ChartData datas={historySensorData} type="air" />
@@ -246,7 +246,7 @@ const DataDevicePage = () => {
                 <h3>Độ ẩm đất</h3>
               </div>
               <div className="label-right">
-                <h3>{sensorData.soil}%</h3>
+                <h3>{sensorData.soil||"..."}%</h3>
               </div>
             </div>
             <ChartData datas={historySensorData} type="soil" />
