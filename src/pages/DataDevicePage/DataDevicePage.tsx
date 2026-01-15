@@ -59,6 +59,7 @@ const DataDevicePage = () => {
       setTopicSensor(result.data.topicSensor);
       setTopicWatering(result.data.topicWatering);
       setDeviceId(result.data.deviceId);
+      setIsWatering(result.data.watering);
       console.log(topicSensor);
     };
 
