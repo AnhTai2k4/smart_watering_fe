@@ -4,6 +4,7 @@ import { useNavigate, useSearchParams } from "react-router-dom"
 import {
   createScheduleGroup,
   deleteScheduleGroup,
+  getGroupById,
   getListScheduleGroup,
   getHistoryPumpGroup,
   pumpGroup,
@@ -55,8 +56,14 @@ const ScheduleGroupPage: React.FC = () => {
       const res = await getHistoryPumpGroup(groupId)
       setHistoryPump(res?.data || [])
     }
+    const fetchWatering = async () => {
+      if (!groupId) return
+      const res = await getGroupById(groupId)
+      setPumping(res?.data.watering || false)
+    }
     fetchSchedules()
     fetchHistory()
+    fetchWatering()
   }, [groupId, refreshFlag])
 
   const handlePump = async (action: "START" | "STOP") => {

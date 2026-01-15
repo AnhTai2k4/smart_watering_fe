@@ -86,6 +86,8 @@ export const pumpGroup = async (id:string, action:string, duration:number)=>{
     return res.data
 }
 
+
+
 export const getHistoryPumpGroup = async (id:string)=>{
     const access_token = localStorage.getItem("token")
     const res = await axiosJWT.get(`${import.meta.env.VITE_BE_URL}/groups/${id}/watering/history`,
