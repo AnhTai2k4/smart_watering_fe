@@ -1,4 +1,3 @@
-import axios from "axios"
 import axiosJWT from "../AxiosClient/AxiosClient.tsx";
 
 export const createSchedule = async (id:string, data: object) =>{
