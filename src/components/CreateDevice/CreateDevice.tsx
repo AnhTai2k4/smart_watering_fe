@@ -19,6 +19,15 @@ const CreateDevice = () => {
       const newDevice = await createDevice(deviceId, deviceName);
       addDevice(newDevice.data);
       
+      if(newDevice){
+        alert("Thêm thiết bị thành công!");
+        navigate("/devices");
+      }
+
+      else{
+        alert("Thêm thiết bị thất bại!");
+      }
+      
       
     } catch (err) {
       console.error("Lỗi API:", err);
