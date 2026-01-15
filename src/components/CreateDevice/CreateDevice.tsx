@@ -21,7 +21,7 @@ const CreateDevice = () => {
       
       if(newDevice){
         alert("Thêm thiết bị thành công!");
-        navigate("/devices");
+        navigate("/device_page");
       }
 
       else{
